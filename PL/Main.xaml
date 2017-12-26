@@ -1,0 +1,60 @@
+﻿<Window x:Class="SM.PL.QUANLYBANHANG.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SM.PL.QUANLYBANHANG"
+        xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar"
+        mc:Ignorable="d"
+        Title="NhapHangHoa" Height="720" Width="1250" 
+        WindowStartupLocation="Manual" Left="0" Top="0">
+
+    <Window.Resources>
+        <!-- A common display mode for all groups and items -->
+        <Style x:Key="commonDisplayMode">
+            <Setter Property="dxn:NavBarViewBase.DisplayMode" Value="ImageAndText"/>
+            <Setter Property="dxn:NavBarViewBase.Orientation" Value="Horizontal"/>
+
+        </Style>
+
+
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        
+        <dxn:NavBarControl x:Name="navBar" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Top" >
+            <dxn:NavBarControl.View>
+                <!--<dxn:explorerbarview x:name="explorerbar" groupvisualstyle="{staticresource commondisplaymode}" itemvisualstyle="{staticresource commondisplaymode}"/>-->
+                <dxn:NavigationPaneView x:Name="PaneView" GroupVisualStyle="{StaticResource commonDisplayMode}" />
+            </dxn:NavBarControl.View>
+
+            <dxn:NavBarGroup dxn:ScrollingSettings.ScrollMode="ScrollBar" x:Name="navBarGroup1" Header="navBarGroup1">
+                <dxn:NavBarItem x:Name="navBarItem1" Content="navBarItem1"/>
+                <Label x:Name="Lable1" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+                <Label Height="50" Content="Phạm Hoài Nguyên"></Label>
+            </dxn:NavBarGroup>
+            <dxn:NavBarGroup x:Name="navBarGroup2" Header="navBarGroup2">
+                <dxn:NavBarItem x:Name="navBarItem2" Content="navBarItem2"/>
+                <Label x:Name="Lable2" Content="Phạm Hoài Nguyên"></Label>
+            </dxn:NavBarGroup>
+            <dxn:NavBarGroup x:Name="navBarGroup3" Header="navBarGroup3">
+                <dxn:NavBarItem x:Name="navBarItem3" Content="navBarItem3"/>
+                <Label Background="LightBlue" x:Name="Lable3" Content="Phạm Hoài Nguyên"></Label>
+            </dxn:NavBarGroup>
+        </dxn:NavBarControl>
+        <Frame x:Name="frame" Source="./NGUYEN/pl_pagePhieuNhapHang.xaml" Grid.Column="1"></Frame>
+    </Grid>
+</Window>

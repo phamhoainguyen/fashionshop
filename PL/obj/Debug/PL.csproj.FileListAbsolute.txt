@@ -1,0 +1,11 @@
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\bin\Debug\PL.exe.config
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\bin\Debug\PL.exe
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\bin\Debug\PL.pdb
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\obj\Debug\PL.csprojResolveAssemblyReference.cache
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\obj\Debug\App.g.cs
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\obj\Debug\PL_MarkupCompile.cache
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\obj\Debug\PL.Properties.Resources.resources
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\obj\Debug\PL.csproj.GenerateResource.Cache
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\obj\Debug\PL.csproj.CoreCompileInputs.cache
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\obj\Debug\PL.exe
+E:\Learning\Subjects\PTPMHDT\Project\SHOP\PL\obj\Debug\PL.pdb
