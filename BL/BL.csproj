@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bl_Utilities\Utilities.cs" />
     <Compile Include="BUS\NGUYEN\bus_LoaiHangHoa.cs" />
     <Compile Include="BUS\NGUYEN\bus_LoaiNhaCungCap.cs" />
     <Compile Include="BUS\NGUYEN\bus_PhieuNhapHang.cs" />
@@ -50,7 +51,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bl_Utilities\" />
     <Folder Include="BUS\HUY\" />
     <Folder Include="BUS\TU\" />
     <Folder Include="DAO\HUY\" />
