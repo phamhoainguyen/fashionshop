@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SM.PL.QUANLYBANHANG
+namespace PL
 {
     /// <summary>
     /// Interaction logic for Main.xaml
@@ -22,6 +22,11 @@ namespace SM.PL.QUANLYBANHANG
         public Main()
         {
             InitializeComponent();
+        }
+
+        private void navBarGroup1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
