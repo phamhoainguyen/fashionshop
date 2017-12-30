@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SM.BL.QUANLYBANHANG.NGUYEN
+namespace BL.BUS.NGUYEN
 {
     public class bus_PhieuNhapHang
     {
