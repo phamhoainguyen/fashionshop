@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SM.BL.QUANLYBANHANG.Utilities
+namespace BL_.Utilities
 {
     class Utilities
     {
