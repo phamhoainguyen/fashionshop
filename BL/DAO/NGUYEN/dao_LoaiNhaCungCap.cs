@@ -1,4 +1,5 @@
-﻿using DL;
+﻿using BL.VO.NGUYEN;
+using DL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,12 +17,12 @@ namespace BL.DAO.NGUYEN
             {
                 if (oParams != null)
                 {
-                    DataTable rDataSource = (DataTable)oParams[0];
+                    vo_LoaiNhaCungCap vo_LoaiNCC = (vo_LoaiNhaCungCap)oParams[0];
                     ConnectionString cnn = new ConnectionString();
-                    string query = "INSERT INTO LOAINHACUNGCAP(ID, TENLOAINHACUNGCAP) output INSERTED.ID VALUES(@id, @name)";
-                    string[] arrParam = new string[] { "@id", "@name" };
-                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int, SqlDbType.NVarChar };
-                    object[] arrvalues = new object[] { rDataSource.Rows[0]["id"], rDataSource.Rows[0]["name"] };
+                    string query = "INSERT INTO LOAINHACUNGCAP(TENLOAINHACUNGCAP) output INSERTED.ID VALUES(@name)";
+                    string[] arrParam = new string[] {"@name" };
+                    SqlDbType[] arrType = new SqlDbType[] {SqlDbType.NVarChar };
+                    object[] arrvalues = new object[] {vo_LoaiNCC.Name};
                     return cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
                 }
                 return 0;
