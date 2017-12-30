@@ -1,9 +1,9 @@
-﻿<Window x:Class="SM.PL.QUANLYBANHANG.Nguyen.pl_ThemLoaiHangHoa"
+﻿<Window x:Class="PL.NGUYEN.pl_ThemLoaiHangHoa"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SM.PL.QUANLYBANHANG.Nguyen"
+        xmlns:local="clr-namespace:PL.NGUYEN"
         mc:Ignorable="d"
         Title="pl_ThemLoaiHangHoa" Height="600" Width="800">
     <Grid>

@@ -1,4 +1,4 @@
-﻿using SM.BL.QUANLYBANHANG;
+﻿using BL.BUS.NGUYEN;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SM.PL.QUANLYBANHANG.Nguyen
+namespace PL.NGUYEN
 {
     /// <summary>
     /// Interaction logic for pl_ThemLoaiHangHoa.xaml
@@ -23,7 +23,7 @@ namespace SM.PL.QUANLYBANHANG.Nguyen
     {
 
         private DataTable dataSource;
-        private bll_LoaiHangHoa bll_LoaiHH;
+        private bus_LoaiHangHoa bll_LoaiHH;
         public pl_ThemLoaiHangHoa()
         {
             InitializeComponent();

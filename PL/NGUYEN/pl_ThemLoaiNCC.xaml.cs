@@ -1,4 +1,4 @@
-﻿using SM.BL.QUANLYBANHANG.NGUYEN;
+﻿using BL.NGUYEN;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SM.PL.QUANLYBANHANG.NGUYEN
+namespace PL.NGUYEN
 {
     /// <summary>
     /// Interaction logic for pl_ThemLoaiNCC.xaml

@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SM.PL.QUANLYBANHANG.NGUYEN
+namespace PL.NGUYEN
 {
     /// <summary>
     /// Interaction logic for PhieuNhapHang.xaml
