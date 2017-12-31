@@ -60,7 +60,7 @@ namespace BL.DAO.NGUYEN
         {
             try
             {
-                string query = "SELECT * FROM NHANVIEN WHERE ISDELETE<>1";
+                string query = "SELECT * FROM NHANVIEN WHERE ISNULL(ISDELETE, 0)<>1";
                 ConnectionString cnn = new ConnectionString();
                 return cnn.conn.GetDataTable(query);
             }
@@ -74,7 +74,7 @@ namespace BL.DAO.NGUYEN
         {
             try
             {
-                string query = "SELECT * FROM NHANVIEN WHERE ID=@id AND ISDELETE<>1";
+                string query = "SELECT * FROM NHANVIEN WHERE ID=@id AND ISNULL(ISDELETE, 0)<>1";
                 ConnectionString cnn = new ConnectionString();
                 string[] arrParam = new string[] { "@id" };
                 SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int };
