@@ -94,13 +94,13 @@ namespace BL.DAO.NGUYEN
                 if (oParams != null)
                 {
                     vo_NhanVien vo_NV = (vo_NhanVien)oParams[0];
-                    string query = "UPDATE NHANVIEN SET MANHANVIEN=@maNV , HOTEN=@hoTen, GIOITINH=@gioiTinh, NGAYSINH=@ngaySinh, CMND=@cmnd, DIACHI=@diaChi" +
+                    string query = "UPDATE NHANVIEN SET HOTEN=@hoTen, GIOITINH=@gioiTinh, NGAYSINH=@ngaySinh, CMND=@cmnd, DIACHI=@diaChi" +
                         ", QUEQUAN=@queQuan, SOTAIKHOAN=@stk, SODIENTHOAI=@sdt, GHICHU=@ghiChu, NGAYVAOLAM=@ngayVaoLam WHERE OUTPUT INSERTED.ID ID=@id";
                     ConnectionString cnn = new ConnectionString();
-                    string[] arrParam = new string[] { "@maNV", "@hoTen", "@gioiTinh", "@ngaySinh", "@cmnd", "@diaChi", "@queQuan", "@stk", "@sdt", "@ghiChu", "@ngayVaoLam", "@id" };
-                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar, SqlDbType.NVarChar,  SqlDbType.Int, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
+                    string[] arrParam = new string[] { "@hoTen", "@gioiTinh", "@ngaySinh", "@cmnd", "@diaChi", "@queQuan", "@stk", "@sdt", "@ghiChu", "@ngayVaoLam", "@id" };
+                    SqlDbType[] arrType = new SqlDbType[] {  SqlDbType.NVarChar,  SqlDbType.Int, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
                         SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.Int};
-                    object[] arrvalues = new object[] {vo_NV.MaNhanVien, vo_NV.HoTen, vo_NV.GioiTinh, vo_NV.NgaySinh, vo_NV.Cmnd,
+                    object[] arrvalues = new object[] { vo_NV.HoTen, vo_NV.GioiTinh, vo_NV.NgaySinh, vo_NV.Cmnd,
                         vo_NV.DiaChi, vo_NV.QueQuan, vo_NV.SoTaiKhoan, vo_NV.SoDienThoai, vo_NV.GhiChu, vo_NV.NgayVaoLam, vo_NV.Id};
                     return cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
                 }
