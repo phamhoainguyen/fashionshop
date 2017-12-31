@@ -54,5 +54,19 @@ namespace BL.DAO.NGUYEN
             }
 
         }
+
+        public DataTable getAllLoaiNhaCungCap()
+        {
+            try
+            {
+                string query = "SELECT * FROM LOAINHACUNGCAP";
+                ConnectionString cnn = new ConnectionString();
+                return cnn.conn.GetDataTable(query);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
