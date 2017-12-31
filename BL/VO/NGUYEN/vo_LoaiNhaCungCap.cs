@@ -29,7 +29,7 @@ namespace BL.VO.NGUYEN
                 if( id !=value)
                 {
                     id = value;
-                    OnPropertyChanged("Id");
+                    //OnPropertyChanged("Id");
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace BL.VO.NGUYEN
                 if (name != value)
                 {
                     name = value;
-                    OnPropertyChanged("Name");
+                    //OnPropertyChanged("Name");
                 }
             }
         }
