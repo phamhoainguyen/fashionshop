@@ -59,9 +59,31 @@ namespace BL.DAO.NGUYEN
         {
             try
             {
-                string query = "SELECT * FROM LOAINHACUNGCAP";
+                string query = "SELECT * FROM LOAINHACUNGCAP ";
                 ConnectionString cnn = new ConnectionString();
                 return cnn.conn.GetDataTable(query);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int updateLoaiNhaCungCap(params object[] oParams)
+        {
+            try
+            {
+                if(oParams != null)
+                {
+                    vo_LoaiHangHoa vo = (vo_LoaiHangHoa)oParams[0];
+                    ConnectionString cnn = new ConnectionString();
+                    string query = "UPDATE LOAINHACUNGCAP SET NAME=@name output INSERTED.ID WHERE ID=@id";
+                    string[] arrParam = new string[] { "@name", "@id" };
+                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar, SqlDbType.Int };
+                    object[] arrvalues = new object[] { vo.Name, vo.Id };
+                    return cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
+                }
+                return 0;
             }
             catch(Exception ex)
             {

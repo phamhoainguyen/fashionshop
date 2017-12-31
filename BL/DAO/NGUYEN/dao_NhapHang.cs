@@ -12,11 +12,11 @@ namespace BL.DAO.NGUYEN
     {
         //private ConnectionString connectionString;
 
-        //public int InsertHangHoa( DataTable iDataSourceHangHoa)
-        //{
-        //    String query = "";
+        public int InsertHangHoa(DataTable iDataSourceHangHoa)
+        {
+            //String query = "";
 
-        //    return 0;
-        //}
+            return 0;
+        }
     }
 }

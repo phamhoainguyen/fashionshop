@@ -12,9 +12,16 @@ namespace BL.BUS.NGUYEN
     {
         public int addNhaCungCap(vo_NhaCungCap vo_nhaCC)
         {
-            dao_NhaCungCap dao_nhaCungCap = new dao_NhaCungCap();
-            int id = dao_nhaCungCap.insertNhaCungCap(vo_nhaCC);
-            return id;
+            try
+            {
+                dao_NhaCungCap dao_nhaCungCap = new dao_NhaCungCap();
+                int id = dao_nhaCungCap.insertNhaCungCap(vo_nhaCC);
+                return id;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public string generateMaNhaCungCap()
@@ -30,7 +37,6 @@ namespace BL.BUS.NGUYEN
             {
                 throw ex;
             }
-
         }
     }
 }

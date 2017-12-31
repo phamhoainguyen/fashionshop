@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL_.Utilities
 {
-    class Utilities
+    public class Utilities
     {
         /// <summary>
         /// Convert YYYY-MM-DD to DD-MM-YYYY
