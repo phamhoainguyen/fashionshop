@@ -33,5 +33,10 @@ namespace PL.NGUYEN
         {
 
         }
+
+        private void lvPhieuNhap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Double click", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }

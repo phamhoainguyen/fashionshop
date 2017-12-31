@@ -77,17 +77,18 @@
 
                 <!--grid ds hang hoa can nhap-->
                 <Grid Grid.Row="2">
-                    <dxg:GridControl x:Name="iGridViewPhieuNhap">
-                        <dxg:GridControl.View>
-                            <dxg:TableView ShowGroupPanel="False"/>
-                        </dxg:GridControl.View>
-                        <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MAPHIEUNHAP, Mode=TwoWay}" Width="150"/>
-                        <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TENNHACUNGCAP, Mode=TwoWay}" Width="200"/>
-                        <dxg:GridColumn Header="Loai hang hoa" Binding="{Binding TONGTIENCANTRA, Mode=TwoWay}" Width="150"/>
-                        <dxg:GridColumn Header="So luong" Binding="{Binding THOIGIAN, Mode=TwoWay}" Width="80"/>
-                        <dxg:GridColumn Header="Ghi chu" Binding="{Binding THOIGIAN, Mode=TwoWay}" Width="*"/>
-
-                    </dxg:GridControl>
+                    <ListView Margin="5" Name="lvPhieuNhap" MouseDoubleClick="lvPhieuNhap_MouseDoubleClick">
+                        <ListView.View>
+                            <GridView x:Name="gv">
+                                <GridViewColumn Header="Ma hang hoa" Width="120" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Ten hang hoa" Width="150" DisplayMemberBinding="{Binding Age}" />
+                                <GridViewColumn Header="Loai hang hoa" Width="150" DisplayMemberBinding="{Binding Mail}" />
+                                <GridViewColumn Header="So luong" Width="80" DisplayMemberBinding="{Binding Mail}" />
+                                <GridViewColumn Header="Don gia" Width="80" DisplayMemberBinding="{Binding Mail}" />
+                                <GridViewColumn Header="Ghi chu" Width="100" DisplayMemberBinding="{Binding Mail}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </Grid>
             </Grid>
 
