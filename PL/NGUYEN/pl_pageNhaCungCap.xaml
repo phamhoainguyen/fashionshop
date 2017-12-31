@@ -1,0 +1,68 @@
+﻿<Page x:Class="PL.NGUYEN.pl_pageNhaCungCap"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL.NGUYEN"
+      xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1050"
+      Title="pl_pageNhaCungCap">
+
+    <Grid Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="NHA CUNG CAP" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Button x:Name="btnExport" Content="Export" Width="100" VerticalAlignment="Center" Margin="300,0,0,0"></Button>
+            <Button x:Name="btnNhapHang" Content="Nhap hang" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"></Button>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Tim Kiem" VerticalAlignment="Center" Margin="20, 0, 10, 0"></Label>
+            <TextBox x:Name="maPhieuNhap" Width="300" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
+
+            <Button Margin="60, 10, 20, 10">
+                <StackPanel Orientation="Horizontal" >
+                    <Image  Source="{dx:DXImage Image=Add_16x16.png}"/>
+                    <Label Content=" Nha cung cap" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button Margin="20, 10, 20, 10" >
+                <StackPanel Orientation="Horizontal" >
+                    <Image  Source="{dx:DXImage Image=ImportMap_32x32.png}"/>
+                    <Label Content=" Import" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button Margin="20, 10, 20, 10" >
+                <StackPanel Orientation="Horizontal" >
+                    <Image  Source="{dx:DXImage Image=NavigateNext_32x32.png}"/>
+                    <Label Content="Xuat file" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+
+
+        <Grid Grid.Row="2">
+            <dxg:GridControl x:Name="iGridViewPhieuNhap">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn Header="Ma phieu nhap" Binding="{Binding MAPHIEUNHAP, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Nha cung cap" Binding="{Binding TENNHACUNGCAP, Mode=TwoWay}" Width="200"/>
+                    <dxg:GridColumn Header="Tong tien" Binding="{Binding TONGTIENCANTRA, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Thoi gian" Binding="{Binding THOIGIAN, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Ghi chu" Binding="{Binding GHICHU, Mode=TwoWay}" Width="*"/>
+                </dxg:GridControl.Columns>
+                <dxg:GridControl.View>
+                    <dxg:TableView ShowGroupPanel="False"/>
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+        </Grid>
+    </Grid>
+</Page>

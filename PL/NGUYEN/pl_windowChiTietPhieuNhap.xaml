@@ -62,10 +62,22 @@
                     </Grid>
                     <Grid Grid.Row="2">
                         <StackPanel Width="400" HorizontalAlignment="Right" Orientation="Horizontal">
-                            <Button Margin="5">
+                            <Button Margin="20, 5, 20, 5" Width="90">
                                 <StackPanel Orientation="Horizontal">
                                     <Image  Source="{dx:DXImage Image=SaveTheme_32x32.png}"/>
                                     <Label Content=" Luu" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                                </StackPanel>
+                            </Button>
+                            <Button Margin="20, 5, 20, 5" Width="90">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image  Source="{dx:DXImage Image=SaveTheme_32x32.png}"/>
+                                    <Label Content=" In" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                                </StackPanel>
+                            </Button>
+                            <Button Margin="20, 5, 20, 5" Width="90">
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image  Source="{dx:DXImage Image=SaveTheme_32x32.png}"/>
+                                    <Label Content=" Huy bo" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

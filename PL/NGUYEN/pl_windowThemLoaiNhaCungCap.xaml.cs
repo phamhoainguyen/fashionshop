@@ -52,7 +52,6 @@ namespace PL.NGUYEN
             {
                 if (this.vo_loaiNCC != null)
                 {
-                    this.vo_loaiNCC.Name = this.tenLoai.Text;
                     if (string.IsNullOrEmpty(this.vo_loaiNCC.Name))
                     {
                         MessageBox.Show("Chua nhap loai hang hoa", "Thong bao!", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -67,7 +66,6 @@ namespace PL.NGUYEN
                         MessageBox.Show("Luu thanh cong", "Thanh cong", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.vo_loaiNCC.Id = this.vo_loaiNCC.Id + 1;
                         this.vo_loaiNCC.Name = "";
-
                     }
                     else
                     {

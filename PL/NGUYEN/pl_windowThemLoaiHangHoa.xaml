@@ -23,7 +23,7 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label x:Name="Title" Grid.ColumnSpan="2" Content="THEM LOAI HANG HOA" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        <Label x:Name="Title" Grid.ColumnSpan="2" Content="THEM LOAI HANG HOA" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
         <TextBlock Grid.Column="0" Grid.Row="1" Text="Ma loai hang hoa:" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="2" Text="Loai hang hoa:" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
         <TextBlock Grid.Column="1" Width="200" Grid.Row="1" Text="{Binding Id, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14" Margin="15, 0,0,0"></TextBlock>
