@@ -30,8 +30,8 @@ namespace BL.BUS.NGUYEN
         {
             try
             {
-                dao_NhaCungCap dao_nhaCC = new dao_NhaCungCap();
-                int id = dao_nhaCC.getLastestNhaCungCapId() + 1;
+                dao_NhanVien dao_NV = new dao_NhanVien();
+                int id = dao_NV.getLastNhanVienID() + 1;
                 string code = "NV" + String.Format("{0:000000}", id);
                 return code;
             }
