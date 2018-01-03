@@ -1,6 +1,8 @@
 ﻿using BL.BUS.NGUYEN;
+using BL.VO.NGUYEN;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -39,8 +41,8 @@ namespace PL.NGUYEN
         {
             try
             {
-                DataTable dt = this.bus_phieuNhap.GetAllPhieuNhapHang();
-                this.gridViewDataSource = dt;
+                ObservableCollection<vo_PhieuNhapHang> list = this.bus_phieuNhap.GetAllPhieuNhapHang();
+                //this.gridViewDataSource = list;
 
                 // gan dataSource cho gridView
                 this.iGridViewPhieuNhap.ItemsSource = this.gridViewDataSource.DefaultView;
