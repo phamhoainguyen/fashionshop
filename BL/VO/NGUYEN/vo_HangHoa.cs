@@ -9,6 +9,10 @@ namespace BL.VO.NGUYEN
 {
     public class vo_HangHoa : PropertyChangedBase
     {
+        public vo_HangHoa()
+        {
+            this.urlImage = "";
+        }
         private int id;
         public int Id
         {
