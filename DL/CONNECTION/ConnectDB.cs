@@ -101,12 +101,16 @@ namespace DL
                     {
                         cmd.Parameters.Add(paras[i], SqlDbType.Int).Value = (decimal)(values[i]);
                     }
-                    else if((SqlDbType)arrTypes[i] == SqlDbType.Money)
+                    else if((SqlDbType)arrTypes[i] == SqlDbType.BigInt)
                     {
-                        cmd.Parameters.Add(paras[i], SqlDbType.Money).Value = (decimal)values[i];
+                        cmd.Parameters.Add(paras[i], SqlDbType.BigInt).Value = (long)values[i];
                     }
                     else    // anything else is NVarchar
                     {
+                        if (values[i] == null)
+                        {
+                            values[i] = "";
+                        }
                         cmd.Parameters.Add(paras[i], SqlDbType.NVarChar).Value = (string)values[i];
                     }
                     
@@ -214,12 +218,16 @@ namespace DL
                     {
                         cmd.Parameters.Add(paras[i], SqlDbType.Int).Value = (int)(values[i]);
                     }
-                    else if ((SqlDbType)arrTypes[i] == SqlDbType.Money)
+                    else if ((SqlDbType)arrTypes[i] == SqlDbType.BigInt)
                     {
-                        cmd.Parameters.Add(paras[i], SqlDbType.Money).Value = (decimal)values[i];
+                        cmd.Parameters.Add(paras[i], SqlDbType.BigInt).Value = (long)values[i];
                     }
                     else    // anything else is NVarchar
                     {
+                        if (values[i] == null)
+                        {
+                            values[i] = "";
+                        }
                         cmd.Parameters.Add(paras[i], SqlDbType.NVarChar).Value = (string)values[i];
                     }
 
@@ -294,12 +302,16 @@ namespace DL
                     {
                         cmd.Parameters.Add(paras[i], SqlDbType.Int).Value = (decimal)(values[i]);
                     }
-                    else if ((SqlDbType)arrTypes[i] == SqlDbType.Money)
+                    else if ((SqlDbType)arrTypes[i] == SqlDbType.BigInt)
                     {
-                        cmd.Parameters.Add(paras[i], SqlDbType.Money).Value = (decimal)values[i];
+                        cmd.Parameters.Add(paras[i], SqlDbType.BigInt).Value = (long)values[i];
                     }
                     else    // anything else is NVarchar
                     {
+                        if(values[i] == null)
+                        {
+                            values[i] = "";
+                        }
                         cmd.Parameters.Add(paras[i], SqlDbType.NVarChar).Value = (string)values[i];
                     }
 
