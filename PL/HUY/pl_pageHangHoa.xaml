@@ -34,19 +34,21 @@
             <Button Content="Sap Xep" Width="70" VerticalAlignment="Center" Margin="80,0,0,0"></Button>
         </StackPanel>
         <Grid Grid.Row="2">
-            <dxg:GridControl x:Name="iGridViewPhieuNhap">
-                <dxg:GridControl.Columns>
-                    <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MAHANGHOA, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TENHANGHOA, Mode=TwoWay}" Width="200"/>
-                    <dxg:GridColumn Header="Gia ban" Binding="{Binding GIABAN, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Gia von" Binding="{Binding GIAVON, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Loai hang hoa" Binding="{Binding ID_LOAIHANGHOA, Mode=TwoWay}" Width="*"/>
-                    <dxg:GridColumn Header="Ghi chu" Binding="{Binding GHICHU, Mode=TwoWay}" Width="*"/>
-                </dxg:GridControl.Columns>
-                <dxg:GridControl.View>
-                    <dxg:TableView ShowGroupPanel="False"/>
-                </dxg:GridControl.View>
-            </dxg:GridControl>
+            <ListView Margin="5" Name="lvPhieuNhap">
+                <ListView.View>
+                    <GridView x:Name="gv">
+                        <GridViewColumn Header="Ma hang hoa" Width="120" DisplayMemberBinding="{Binding MaHangHoa}" />
+                        <GridViewColumn Header="Ten hang hoa" Width="150" DisplayMemberBinding="{Binding TenHangHoa}" />
+                        <GridViewColumn Header="Loai hang hoa" Width="150" DisplayMemberBinding="{Binding LoaiHangHoa}" />
+                        <GridViewColumn Header="So luong" Width="90" DisplayMemberBinding="{Binding Soluong}" />
+                        <GridViewColumn Header="Gia mua" Width="100" DisplayMemberBinding="{Binding GiaMua}" />
+                        <GridViewColumn Header="Gia ban" Width="100" DisplayMemberBinding="{Binding GiaBan}" />
+                        <GridViewColumn Header="Giam gia" Width="90" DisplayMemberBinding="{Binding GiaGiam}" />
+                        <GridViewColumn Header="Ton kho" Width="90" DisplayMemberBinding="{Binding TonKho}" />
+                        <GridViewColumn Header="Ghi chu" Width="100" DisplayMemberBinding="{Binding GhiChu}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
     </Grid>
 </Page>
