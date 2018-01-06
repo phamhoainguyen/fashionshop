@@ -5,10 +5,50 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.HUY"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="720" d:DesignWidth="1050"
       Title="pl_pageDanhSachKhachHang">
 
-    <Grid>
-        
+    <Grid Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="KHACH HANG" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Button x:Name="btnExport" Content="Export" Width="100" VerticalAlignment="Center" Margin="300,0,0,0"></Button>
+            <Button x:Name="btnThemKhachHang" Content="Them Khach Hang" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"></Button>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Tim Kiem :" VerticalAlignment="Center"></Label>
+            <TextBox x:Name="maHangHoa" Width="200" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
+            <Label Content="Sap xep :" Margin="50,0,0,0" VerticalAlignment="Center"></Label>
+            <Label Content=" Tat Ca " Margin="55,0,0,0" VerticalAlignment="Center"></Label>
+            <RadioButton x:Name="rbTatCa" ></RadioButton>
+            <Label Content=" Ten " Margin="60,0,0,0" VerticalAlignment="Center"></Label>
+            <RadioButton x:Name="rbTen"></RadioButton>
+            <Label Content=" Nam Sinh " Margin="65,0,0,0" VerticalAlignment="Center"></Label>
+            <RadioButton x:Name="rbNamSinh"></RadioButton>
+            <Button Content="Sap Xep" Width="70" VerticalAlignment="Center" Margin="80,0,0,0"></Button>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <ListView Margin="5" x:Name="lvKhachHang">
+                <ListView.View>
+                    <GridView x:Name="gvkh">
+                        <GridViewColumn Header="Ma khach hang" Width="120" DisplayMemberBinding="{Binding MaKhachHang}" />
+                        <GridViewColumn Header="Ten khach hang" Width="130" DisplayMemberBinding="{Binding TenKhachHang}" />
+                        <GridViewColumn Header="So dien thoai" Width="130" DisplayMemberBinding="{Binding SoDienThoai}" />
+                        <GridViewColumn Header="So tai khoan" Width="90" DisplayMemberBinding="{Binding SoTaiKhoan}" />
+                        <GridViewColumn Header="Ngay sinh" Width="100" DisplayMemberBinding="{Binding NgaySinh}" />
+                        <GridViewColumn Header="Dia chi" Width="100" DisplayMemberBinding="{Binding DiaChi}" />
+                        <GridViewColumn Header="Gioi tinh" Width="90" DisplayMemberBinding="{Binding GioiTinh}" />
+                        <GridViewColumn Header="CMND" Width="90" DisplayMemberBinding="{Binding Cmnd}" />
+                        <GridViewColumn Header="Ngay dk " Width="90" DisplayMemberBinding="{Binding NgayDangKi}" />
+                        <GridViewColumn Header="Ghi chu" Width="90" DisplayMemberBinding="{Binding GhiChu}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>
