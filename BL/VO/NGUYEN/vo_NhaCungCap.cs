@@ -18,8 +18,8 @@ namespace BL.VO.NGUYEN
         private string soTaiKhoan;
         private string email;
         private string ghiChu;
-        private int loaiNhaCungCap;
-        private ObservableCollection<vo_LoaiNhaCungCap> dsLoaiNhaCungCap;
+        private int idLoaiNhaCungCap;
+        private string loaiNhaCungCap;
 
 
         public int Id
@@ -126,7 +126,7 @@ namespace BL.VO.NGUYEN
             }
         }
 
-        public int LoaiNhaCungCap
+        public string LoaiNhaCungCap
         {
             get { return loaiNhaCungCap; }
             set
@@ -139,17 +139,30 @@ namespace BL.VO.NGUYEN
             }
         }
 
-        public ObservableCollection<vo_LoaiNhaCungCap> DsLoaiNhaCungCap
+        public int IdLoaiNhaCungCap
         {
-            get { return dsLoaiNhaCungCap; }
+            get { return idLoaiNhaCungCap; }
             set
             {
-                if (dsLoaiNhaCungCap != value)
+                if (idLoaiNhaCungCap != value)
                 {
-                    dsLoaiNhaCungCap = value;
-                    OnPropertyChanged("DsLoaiNhaCungCap");
+                    idLoaiNhaCungCap = value;
+                    OnPropertyChanged("IdLoaiNhaCungCap");
                 }
             }
         }
+
+        //public ObservableCollection<vo_LoaiNhaCungCap> DsLoaiNhaCungCap
+        //{
+        //    get { return dsLoaiNhaCungCap; }
+        //    set
+        //    {
+        //        if (dsLoaiNhaCungCap != value)
+        //        {
+        //            dsLoaiNhaCungCap = value;
+        //            OnPropertyChanged("DsLoaiNhaCungCap");
+        //        }
+        //    }
+        //}
     }
 }

@@ -55,8 +55,8 @@ namespace BL.VO.NGUYEN
         }
 
 
-        private int DaTra;
-        public int daTra
+        private int daTra;
+        public int DaTra
         {
             get { return daTra; }
             set
@@ -140,6 +140,34 @@ namespace BL.VO.NGUYEN
             }
         }
 
+        private int canTra;
+        public int CanTra
+        {
+            get { return canTra; }
+            set
+            {
+                if (canTra != value)
+                {
+                    canTra = value;
+                    OnPropertyChanged("CanTra");
+                }
+            }
+        }
+
+
+        private int conNo;
+        public int ConNo
+        {
+            get { return conNo; }
+            set
+            {
+                if (conNo != value)
+                {
+                    conNo = value;
+                    OnPropertyChanged("ConNo");
+                }
+            }
+        }
         //private ObservableCollection<vo_NhaCungCap> dsNhaCungCap;
 
         //public ObservableCollection<vo_NhaCungCap> DsNhaCungCap
