@@ -107,9 +107,9 @@ namespace BL.DAO.NGUYEN
                     string query = "UPDATE PHIEUNHAPHANG SET TONGTIENCANTRA=@tongtien, DATRA=@datra, THOIGIAN=@thoigian, GHICHU=@ghichu, MANHACUNGCAP=@ghichu, MANHANVIEN=@maNV, TONGGIAM=@tongGiam " +
                         "WHERE ID=@id";
                     string[] arrParam = new string[] { "@tongtien", "@datra", "@thoigian", "@ghichu", "@maNCC", "@maNV", "@tongGiam", "@id" };
-                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int,  SqlDbType.Int, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
-                        SqlDbType.NVarChar, SqlDbType.Int, SqlDbType.Int};
-                    object[] arrvalues = new object[] { vo.TongTien, vo.daTra, vo.ThoiGian, vo.GhiChu, vo.MaNhaCungCap, vo.MaNhanVien, vo.TongGiam,vo.Id };
+                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.BigInt,  SqlDbType.BigInt, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
+                        SqlDbType.NVarChar, SqlDbType.BigInt, SqlDbType.Int};
+                    object[] arrvalues = new object[] { vo.TongTien, vo.DaTra, vo.ThoiGian, vo.GhiChu, vo.MaNhaCungCap, vo.MaNhanVien, vo.TongGiam,vo.Id };
                     return cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
                 }
                 return 0;
@@ -131,9 +131,9 @@ namespace BL.DAO.NGUYEN
                     string query = "INSERT INTO PHIEUNHAPHANG(TONGTIENCANTRA, DATRA, THOIGIAN, GHICHU, MANHACUNGCAP, MANHANVIEN, TONGGIAM) " +
                         "VALUES (@tongtien, @datra, @thoigian, @ghichu, @maNCC, @maNV, @tongGiam)";
                     string[] arrParam = new string[] {"@tongtien", "@datra", "@thoigian", "@ghichu", "@maNCC", "@maNV", "@tongGiam" };
-                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int,  SqlDbType.Int, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
-                        SqlDbType.NVarChar, SqlDbType.Int};
-                    object[] arrvalues = new object[] { vo.TongTien, vo.daTra, vo.ThoiGian, vo.GhiChu, vo.MaNhaCungCap, vo.MaNhanVien, vo.TongGiam };
+                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.BigInt,  SqlDbType.BigInt, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
+                        SqlDbType.NVarChar, SqlDbType.BigInt};
+                    object[] arrvalues = new object[] { vo.TongTien, vo.DaTra, vo.ThoiGian, vo.GhiChu, vo.MaNhaCungCap, vo.MaNhanVien, vo.TongGiam };
                     return cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
                 }
                 return 0;
@@ -160,9 +160,8 @@ namespace BL.DAO.NGUYEN
                     {
                         string query = "INSERT INTO CHITIETPHIEUNHAPHANG(MAHANGHOA, MAPHIEUNHAP, SOLUONG, DONGIA, GIAGIAM) " +
                             "VALUES(@maHH, @maPN, @soLuong, @donGia, @giaGiam)";
-                        string[] arrParam = new string[] { "@maHH", "@datra", "@soLuong", "@donGia", "@giaGiam" };
-                        SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar,  SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
-                        SqlDbType.NVarChar, SqlDbType.Int};
+                        string[] arrParam = new string[] { "@maHH", "@maPN", "@soLuong", "@donGia", "@giaGiam" };
+                        SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar,  SqlDbType.NVarChar, SqlDbType.Int, SqlDbType.BigInt, SqlDbType.BigInt};
                         object[] arrvalues = new object[] { vo.MaHangHoa, vo_PN.MaPhieuNhap, vo.TonKho, vo.GiaBan, vo.GiaGiam };
                         cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
                         soHangHoa++;

@@ -62,7 +62,7 @@ namespace BL.DAO.NGUYEN
         {
             try
             {
-                string query = "SELECT * FROM NHACUNGCAP WHERE ISNULL(ISDELETE, 0)<>1";
+                string query = "SELECT ncc.*, lncc.TENLOAINHACUNGCAP as LOAINHACUNGCAP, lncc.ID as ID_LOAINHACUNGCAP FROM NHACUNGCAP ncc INNER JOIN LOAINHACUNGCAP lncc ON ncc.ID_LOAINCC = lncc.ID WHERE ISNULL(ISDELETE, 0)<>1";
                 ConnectionString cnn = new ConnectionString();
                 return cnn.conn.GetDataTable(query);
             }
@@ -76,7 +76,7 @@ namespace BL.DAO.NGUYEN
         {
             try
             {
-                string query = "SELECT * FROM NHACUNGCAP WHERE ID=@id AND ISNULL(ISDELETE, 0)<>1";
+                string query = "SELECT ncc.*, lncc.TENLOAINHACUNGCAP as LOAINHACUNGCAP, lncc.ID as ID_LOAINHACUNGCAP FROM NHACUNGCAP ncc INNER JOIN LOAINHACUNGCAP lncc ON ncc.ID_LOAINCC = lncc.ID WHERE ID=@id ISNULL(ISDELETE, 0)<>1";
                 ConnectionString cnn = new ConnectionString();
                 string[] arrParam = new string[] { "@id" };
                 SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int };
