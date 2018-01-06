@@ -11,14 +11,14 @@
         <DataTemplate x:Key="DataTemplate1">
             <Grid Background="White" >
                 <StackPanel Orientation="Vertical">
+                    
+                    <Image Source="../Resources/images/CE2240_21_model.jpg" Height="150" Width="150"></Image>
+                    <Label Content= "{Binding TenHangHoa,Mode=TwoWay}"  HorizontalAlignment="Center"></Label>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Label Content= "{Binding GiaBan ,Mode=TwoWay}"   FontWeight="Bold"  HorizontalAlignment="Center"></Label>
                         <Label Content= "|SL: "  HorizontalAlignment="Center"></Label>
                         <Label Content= "{Binding TonKho,Mode=TwoWay}"  HorizontalAlignment="Center"></Label>
                     </StackPanel>
-                    <Image Source="../Resources/images/CE2240_21_model.jpg" Height="200" Width="200"></Image>
-                    <Label Content= "{Binding TenHangHoa,Mode=TwoWay}"  HorizontalAlignment="Center"></Label>
-                    
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -50,7 +50,7 @@
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="280"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="0"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Background="LightGray">
@@ -84,22 +84,18 @@
                     </Grid>
 
                 </Grid>
-                <Grid Grid.Row="1" Background="LightPink">
-                    <Button x:Name="themHangHoa" Click="themHangHoa_Click">
-                        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Width="73" Source="{dx:DXImage Image=NavigateNext_32x32.png}"/>
-                    </Button>
-                </Grid>
+               
 
                 <!--grid ds hang hoa can nhap-->
                 <Grid Grid.Row="2">
                     <dxg:GridControl x:Name="iGridViewPhieuNhap">
                         <dxg:GridControl.View>
-                            <dxg:TableView ShowGroupPanel="False" RowDoubleClick="TableView_RowDoubleClick" CellValueChanged="TableView_CellValueChanged"/>
+                            <dxg:TableView Name="tbViewPhieuNhap" ShowGroupPanel="False" RowDoubleClick="TableView_RowDoubleClick" CellValueChanged="TableView_CellValueChanged"/>
                         </dxg:GridControl.View>
-                        <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MaHangHoa, Mode=TwoWay}" Width="100" AllowEditing="False"/>
-                        <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TenHangHoa, Mode=TwoWay}" Width="150"/>
+                        <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MaHangHoa, Mode=TwoWay}" Width="100"/>
+                        <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TenHangHoa, Mode=TwoWay}" Width="200"/>
                         <dxg:GridColumn Header="So luong" Binding="{Binding SoLuong, Mode=TwoWay}" Width="80"/>
-                        <dxg:GridColumn Header="Don gia" Binding="{Binding DonGia, Mode=TwoWay}" Width="80"/>
+                        <dxg:GridColumn Header="Gia von" Binding="{Binding GiaVon, Mode=TwoWay}" Width="80"/>
                         <dxg:GridColumn Header="Gia Ban" Binding="{Binding GiaBan, Mode=TwoWay}" Width="80"/>
                         <dxg:GridColumn Header="Gia giam" Binding="{Binding GiaGiam, Mode=TwoWay}" Width="80"/>
                         <dxg:GridColumn Header="Ghi chu" Binding="{Binding GhiChu, Mode=TwoWay}" Width="*"/>

@@ -33,9 +33,9 @@ namespace PL.NGUYEN
                 this.DataContext = vo_nhaCC;
 
                 //gan DataContext
-                this.vo_nhaCC.DsLoaiNhaCungCap = bus_loaiNCC.getListLoaiNhaCungCap();
+                //this.vo_nhaCC.DsLoaiNhaCungCap = bus_loaiNCC.getListLoaiNhaCungCap();
                 //gan dataContext
-                this.cbBoxLoaiNCC.ItemsSource = this.vo_nhaCC.DsLoaiNhaCungCap;
+                this.cbBoxLoaiNCC.ItemsSource = this.bus_loaiNCC.getListLoaiNhaCungCap();
 
                 this.vo_nhaCC.MaNhaCungCap = bus_nhaCC.generateMaNhaCungCap();
                 
@@ -52,7 +52,7 @@ namespace PL.NGUYEN
         {
             try
             {
-                if (string.IsNullOrEmpty(this.vo_nhaCC.DsLoaiNhaCungCap.ToString()) || string.IsNullOrEmpty(this.vo_nhaCC.Id.ToString()))
+                if (string.IsNullOrEmpty(this.vo_nhaCC.Id.ToString()))
                 {
                     return false;
                 }
@@ -72,7 +72,7 @@ namespace PL.NGUYEN
             {
                 if(this.ValidateValue())
                 {
-                    this.vo_nhaCC.LoaiNhaCungCap = int.Parse(this.cbBoxLoaiNCC.SelectedValue.ToString());
+                    this.vo_nhaCC.LoaiNhaCungCap = (this.cbBoxLoaiNCC.SelectedValue.ToString());
 
                     int id = this.bus_nhaCC.addNhaCungCap(this.vo_nhaCC);
                     if (id > 0)

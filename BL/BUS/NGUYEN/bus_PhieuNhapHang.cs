@@ -26,7 +26,7 @@ namespace BL.BUS.NGUYEN
                     foreach(DataRow dr in dt.Rows)
                     {
                         vo_PhieuNhapHang vo_phieuNhap = new vo_PhieuNhapHang();
-                        vo_phieuNhap.daTra = int.Parse(dr["DATRA"].ToString());
+                        vo_phieuNhap.DaTra = int.Parse(dr["DATRA"].ToString());
                         vo_phieuNhap.GhiChu = dr["GHICHU"].ToString();
                         vo_phieuNhap.Id = int.Parse(dr["ID"].ToString());
                         vo_phieuNhap.MaNhaCungCap = dr["MANHACUNGCAP"].ToString();
@@ -48,6 +48,27 @@ namespace BL.BUS.NGUYEN
             }
         }
 
+        /// <summary>
+        /// tao ma phieu nhap
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        
+        public string GenerateMaPhieuNhap()
+        {
+            try
+            {
+                dao_PhieuNhapHang dao = new dao_PhieuNhapHang();
+                int id =dao.GetLastesPhieuNhapId() + 1;
+                string code = "PN" + String.Format("{0:00000}", id);
+                return code;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         // lay chi tiet phieu nhap hang
         public vo_PhieuNhapHang GetChiTietPhieuNhapHang(int id)
@@ -61,7 +82,7 @@ namespace BL.BUS.NGUYEN
                 DataTable dt = dao.GetPhieuNhapById(id);
                 if(dt != null && dt.Rows.Count > 0)
                 {
-                    vo_phieuNhap.daTra          = int.Parse(dt.Rows[0]["DATRA"].ToString());
+                    vo_phieuNhap.DaTra          = int.Parse(dt.Rows[0]["DATRA"].ToString());
                     vo_phieuNhap.GhiChu         = dt.Rows[0]["GHICHU"].ToString();
                     vo_phieuNhap.Id             = int.Parse(dt.Rows[0]["ID"].ToString());
                     vo_phieuNhap.MaNhaCungCap   = dt.Rows[0]["MANHACUNGCAP"].ToString();

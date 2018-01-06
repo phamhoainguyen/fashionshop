@@ -33,7 +33,16 @@ namespace BL_.Utilities
             return date[2] + "-" + date[1]+ "-" + date[0];
         }
 
-
+        // convert datatime system to my datetime
+        public static string StandardTime(string _date)
+        {
+            string[] dateTime = _date.Split(' ');
+            string date1 = dateTime[0];
+            string time = dateTime[1];
+            string[] detailTime = time.Split(':');
+            string[] detailDate = date1.Split('/');
+            return detailDate[1] + "-" + detailDate[0] + "-" + detailDate[2];
+        }
        
     }
 }

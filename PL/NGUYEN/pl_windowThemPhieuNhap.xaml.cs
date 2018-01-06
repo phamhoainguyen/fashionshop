@@ -4,6 +4,7 @@ using BL_.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,7 +51,7 @@ namespace PL.NGUYEN
 
                 this.InitValue();
                 this.lvHangHoa.ItemsSource = this.dsHangHoaTrongKho;
-                this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoaTrongKho;
+                this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoaCuaPhieuNhap;
                 //vo_PN.MaPhieuNhap = this.bus_PN;
             }
             catch(Exception ex)
@@ -84,7 +85,7 @@ namespace PL.NGUYEN
         protected void handleDownProduct(object sender, MouseButtonEventArgs e)
         {
             vo_HangHoa track = ((ListViewItem)sender).Content as vo_HangHoa; //Casting back to the binded Track
-            string ma = track.MaHangHoa;
+            this.dsHangHoaCuaPhieuNhap.Add(track);
             return;
         }
 
@@ -94,10 +95,6 @@ namespace PL.NGUYEN
 
         }
 
-        private void themHangHoa_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void lvPhieuNhap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -111,8 +108,7 @@ namespace PL.NGUYEN
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            if(this.vo_PN.CanTra == 0)
-            this.canTra.Text = "";
+            
         }
 
         private void canTra_LostFocus(object sender, RoutedEventArgs e)
@@ -127,7 +123,17 @@ namespace PL.NGUYEN
 
         private void TableView_CellValueChanged(object sender, DevExpress.Xpf.Grid.CellValueChangedEventArgs e)
         {
-            MessageBox.Show("Editing cell", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+            try
+            {
+                vo_HangHoa row = (vo_HangHoa)this.iGridViewPhieuNhap.SelectedItem;
+                string a = row.MaHangHoa;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            
         }
+
     }
 }
