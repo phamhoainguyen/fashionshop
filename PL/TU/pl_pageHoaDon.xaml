@@ -1,0 +1,54 @@
+﻿<Page x:Class="PL.TU.pl_pageHoaDon"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL.TU"
+       xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1050"
+      Title="pl_pageHoaDon">
+
+    <Grid Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="HÓA ĐƠN" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Button x:Name="btnBanHang" Content="Bán hàng" Width="100" VerticalAlignment="Center" Margin="300,0,0,0"></Button>
+            <Button x:Name="btnXuatFile" Content="Xuất file" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"></Button>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Tim Kiem" VerticalAlignment="Center"></Label>
+            <TextBox x:Name="txtHoaDon" Width="100" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
+            <TextBox x:Name= "txtKhachHang" Width="100" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
+           <!-- <TextBox x:Name="maHH" Width="100" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>-->
+            <Label Content="Tu ngay:" Margin="20,0,0,0" VerticalAlignment="Center" ></Label>
+            <DatePicker Width="100" Margin="5,0,0,0" VerticalAlignment="Center"></DatePicker>
+            <Label Content="Den ngay:" Margin="20,0,0,0" VerticalAlignment="Center" ></Label>
+            <DatePicker Width="100" Margin="5,0,0,0" VerticalAlignment="Center"></DatePicker>
+            <Button Content="Tim" Width="70" VerticalAlignment="Center" Margin="30,0,0,0" ></Button>
+        </StackPanel>
+        <Grid Grid.Row="2">
+         
+            <ListView Margin="10" Name="gvHoaDon">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Mã hóa đơn" Width="100" DisplayMemberBinding="{Binding MaHoaDon}" />
+                        <GridViewColumn Header="Thời gian" Width="150" DisplayMemberBinding="{Binding ThoiGian}" />
+                        <GridViewColumn Header="Khách hàng" Width="300" DisplayMemberBinding="{Binding TenKhacHang}" />
+                        <GridViewColumn Header="Tổng tiền hàng" Width="150" DisplayMemberBinding="{Binding CanThanhToan}" />
+                         <GridViewColumn Header="Giảm giá" Width="150" DisplayMemberBinding="{Binding TongGiam}" />
+                        <GridViewColumn Header="Khách đã trả" Width="150" DisplayMemberBinding="{Binding DaTra}" />
+                        
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

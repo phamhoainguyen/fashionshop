@@ -1,0 +1,113 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.TU"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="PL.TU.pl_windowChiTietHoaDon"
+        mc:Ignorable="d"
+        Title="pl_windowChiTietHoaDon" Height="720" Width="1050">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition   Height="50"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition  Height="*"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label FontSize="22" Grid.Row="0" Content="THÔNG TIN CHI TIẾT HÓA ĐƠN" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 15, 0 ,0"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Mã hóa đơn:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Thời gian:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Khách hàng:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+            <Label Grid.Row="1" Grid.Column="2" Content="Chi Nhanh:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
+            <Label Grid.Row="2" Grid.Column="2" Content="Nguoi tao:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+            <Label Grid.Row="0" Grid.Column="4" Content="Ghi chu:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+            <TextBox Grid.Column="5" Grid.RowSpan="3" Margin="15" MaxLines="8" TextWrapping="Wrap" AcceptsReturn="True"/>
+        </Grid>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="6" Margin="142,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="22"/>
+
+
+        <dxg:GridControl    Grid.Row="2" >
+            <dxg:GridControl.View>
+                <dxg:TableView ShowGroupPanel="False"/>
+            </dxg:GridControl.View>
+            <dxg:GridColumn Header="Mã hàng hóa" Width="150"/>
+            <dxg:GridColumn Header="Tên hàng" Width="300"/>
+            <dxg:GridColumn Header="Số lượng" Width="150"/>
+            <dxg:GridColumn Header="Đơn giá" Width="150"/>
+
+            <dxg:GridColumn Header="Giá bán" Width="150"/>
+            <dxg:GridColumn Header="Thành tiền" Width="150"/>
+
+        </dxg:GridControl>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="850"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" Content="Tổng số lượng:" />
+            <Label Grid.Row="0" Grid.Column="2" Content="1200000"  HorizontalAlignment="Right"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="Tổng tiền hàng:" />
+            <Label Grid.Row="1" Grid.Column="2" Content="1200000"  HorizontalAlignment="Right"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="Giảm giá hóa đơn:" />
+            <Label Grid.Row="2" Grid.Column="2" Content="1200000"  HorizontalAlignment="Right"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="Khách cần trả:" Margin="0,25,0,5" Grid.RowSpan="2" />
+            <Label Grid.Row="3" Grid.Column="2" Content="1200000"  HorizontalAlignment="Right"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="Khách đã trả:" />
+            <Label Grid.Row="4" Grid.Column="2" Content="1200000"  HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid Grid.Row= "4" >
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button>
+                    <StackPanel>
+                        <Image/>
+                        <Label Content="Lưu"></Label>
+                    </StackPanel>
+
+                </Button>
+                <Button>
+                    <StackPanel>
+                        <Image/>
+                        <Label Content="Xuất file"></Label>
+                    </StackPanel>
+
+                </Button>
+                <Button>
+                    <StackPanel>
+                        <Image/>
+                        <Label Content="Hủy"></Label>
+                    </StackPanel>
+
+                </Button>
+            </StackPanel>
+
+
+        </Grid>
+
+
+
+    </Grid>
+
+</Window>
