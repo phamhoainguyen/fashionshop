@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
       xmlns:local="clr-namespace:PL.HUY"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1050"
       Title="pl_pageHangHoa">
@@ -17,38 +19,50 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="HANG HOA" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            <Button x:Name="btnExport" Content="Export" Width="100" VerticalAlignment="Center" Margin="300,0,0,0"></Button>
-            <Button x:Name="btnThemHang" Content="Them Hang Hoa" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"></Button>
+        </StackPanel>
+        <DockPanel Grid.Row="1"  VerticalAlignment="Center">
+            <Label Content="Tim Kiem :" VerticalAlignment="Center" Margin="10,0"></Label>
+            <TextBox x:Name="searchBox" TextChanged="maHangHoa_TextChanged" Width="250" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,15,0">
+                <Button Name="btnThem" Click="btnThem_Click" Width="150"
+                    Margin="250, 10, 0, 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="{dx:DXImage Image=Add_32x32.png}" />
+                        <Label Content=" Them hang hoa" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnExport" Click="btnExport_Click" Width="90"
+                    Margin="20, 10, 15, 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="{dx:DXImage Image=Right_32x32.png}" />
+                        <Label Content=" Export" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
             
-        </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label Content="Tim Kiem :" VerticalAlignment="Center"></Label>
-            <TextBox x:Name="maHangHoa" Width="200" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
-            <Label Content="Sap xep :" Margin="50,0,0,0" VerticalAlignment="Center"></Label>
-            <Label Content=" Tat Ca " Margin="55,0,0,0" VerticalAlignment="Center"></Label>
-            <RadioButton x:Name="rbTatCa" ></RadioButton>
-            <Label Content=" Thoi gian " Margin="60,0,0,0" VerticalAlignment="Center"></Label>
-            <RadioButton x:Name="rbThoiGian"></RadioButton>
-            <Label Content=" Loai San Pham " Margin="65,0,0,0" VerticalAlignment="Center"></Label>
-            <RadioButton x:Name="rbLoaiSanPham"></RadioButton>
-            <Button Content="Sap Xep" Width="70" VerticalAlignment="Center" Margin="80,0,0,0"></Button>
-        </StackPanel>
+        </DockPanel>
         <Grid Grid.Row="2">
-            <ListView Margin="5" Name="lvPhieuNhap">
-                <ListView.View>
-                    <GridView x:Name="gv">
-                        <GridViewColumn Header="Ma hang hoa" Width="120" DisplayMemberBinding="{Binding MaHangHoa}" />
-                        <GridViewColumn Header="Ten hang hoa" Width="150" DisplayMemberBinding="{Binding TenHangHoa}" />
-                        <GridViewColumn Header="Loai hang hoa" Width="150" DisplayMemberBinding="{Binding LoaiHangHoa}" />
-                        <GridViewColumn Header="So luong" Width="90" DisplayMemberBinding="{Binding Soluong}" />
-                        <GridViewColumn Header="Gia mua" Width="100" DisplayMemberBinding="{Binding GiaMua}" />
-                        <GridViewColumn Header="Gia ban" Width="100" DisplayMemberBinding="{Binding GiaBan}" />
-                        <GridViewColumn Header="Giam gia" Width="90" DisplayMemberBinding="{Binding GiaGiam}" />
-                        <GridViewColumn Header="Ton kho" Width="90" DisplayMemberBinding="{Binding TonKho}" />
-                        <GridViewColumn Header="Ghi chu" Width="100" DisplayMemberBinding="{Binding GhiChu}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <dxg:GridControl x:Name="iGridViewPhieuNhap">
+                <dxg:GridControl.View>
+                    <dxg:TableView Name="tbViewPhieuNhap" ShowGroupPanel="False" RowDoubleClick="TableView_RowDoubleClick">
+                        <dxg:TableView.RowCellMenuCustomizations>
+                            <dxb:BarButtonItem Name="deleteRowItem" Content="Delete" 
+                           ItemClick="deleteRowItem_ItemClick"/>
+                            <dxb:BarButtonItem Name="thietLapGia" Content="Thiet lap gia" 
+                           ItemClick="thietLapGia_ItemClick"/>
+                        </dxg:TableView.RowCellMenuCustomizations>
+                        
+                    </dxg:TableView>
+
+                </dxg:GridControl.View>
+
+                <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MaHangHoa, Mode=TwoWay}" AllowEditing="false" Width="150"/>
+                <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TenHangHoa, Mode=TwoWay}" AllowEditing="false" Width="250"/>
+                <dxg:GridColumn Header="Ton kho" Binding="{Binding TonKho, Mode=TwoWay}" AllowEditing="false" Width="120"/>
+                <dxg:GridColumn Header="Gia von" Binding="{Binding GiaVon, Mode=TwoWay}" AllowEditing="false" Width="120"/>
+                <dxg:GridColumn Header="Gia Ban" Binding="{Binding GiaBan, Mode=TwoWay}" AllowEditing="false" Width="120"/>
+                <dxg:GridColumn Header="Ghi chu" Binding="{Binding GhiChu, Mode=TwoWay}" AllowEditing="false" Width="*"/>
+            </dxg:GridControl>
         </Grid>
     </Grid>
 </Page>
