@@ -249,6 +249,8 @@ namespace PL.NGUYEN
             try
             {
                 this.InitValue();
+                this.lvHangHoa.ItemsSource = this.dsHangHoaTrongKho;
+                this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoaCuaPhieuNhap;
             }
             catch (Exception ex)
             {
@@ -272,6 +274,9 @@ namespace PL.NGUYEN
                 int id = this.bus_PN.AddPhieuNhapHang(this.vo_PN);
                 if(id > 0)
                 {
+                    this.InitValue();
+                    this.lvHangHoa.ItemsSource = this.dsHangHoaTrongKho;
+                    this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoaCuaPhieuNhap;
                     MessageBox.Show("Them phieu nhap thanh cong", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
