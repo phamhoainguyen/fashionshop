@@ -1,0 +1,50 @@
+﻿<Page x:Class="PL.HUY.pl_pageNhanVien"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL.HUY"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1050"
+      Title="pl_pageNhanVien">
+
+    <Grid Background="LightBlue" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="NHÂN VIÊN" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Button x:Name="btnExport" Content="Export" Width="100" VerticalAlignment="Center" Margin="300,0,0,0"></Button>
+            <Button x:Name="btnThemNhanVien" Content="Thêm Nhân Viên" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0" Click="btnThemNhanVien_Click"></Button>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Tìm Kiếm :" VerticalAlignment="Center"></Label>
+            <TextBox x:Name="maNhanVien" Width="200" Margin="20,0,0,0" VerticalAlignment="Center" TextChanged="maNhanVien_TextChanged"></TextBox>
+            <Label Content="Sắp xếp :" Margin="50,0,0,0" VerticalAlignment="Center"></Label>
+            <Label Content=" Tất Cả " Margin="55,0,0,0" VerticalAlignment="Center"></Label>
+            <RadioButton x:Name="rbTatCa" Margin="0,6,0,0" ></RadioButton>
+            <Label Content=" Tên " Margin="60,0,0,0" VerticalAlignment="Center"></Label>
+            <RadioButton x:Name="rbTen" Margin="0,6,0,0"></RadioButton>
+            <Label Content=" Năm Sinh " Margin="65,0,0,0" VerticalAlignment="Center"></Label>
+            <RadioButton x:Name="rbNamSinh" Margin="0,6,0,0"></RadioButton>
+            <Button Content="Sắp Xếp" Width="70" VerticalAlignment="Center" Margin="80,0,0,0"></Button>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <ListView Margin="5" x:Name="lvNhanVien" >
+                <ListView.View>
+                    <GridView x:Name="gvkh">
+                        <GridViewColumn Header="Ma nhan vien" Width="120" DisplayMemberBinding="{Binding MaNhanVien}" />
+                        <GridViewColumn Header="Ho ten" Width="130" DisplayMemberBinding="{Binding HoTen}" />
+                        <GridViewColumn Header="Dia chi" Width="250" DisplayMemberBinding="{Binding DiaChi}" />
+                        <GridViewColumn Header="Gioi tinh" Width="120" DisplayMemberBinding="{Binding GioiTinh}" />
+                        <GridViewColumn Header="Ngay vao lam " Width="200" DisplayMemberBinding="{Binding NgayVaoLam}" />
+                        <GridViewColumn Header="Ghi chu" Width="190" DisplayMemberBinding="{Binding GhiChu}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>
