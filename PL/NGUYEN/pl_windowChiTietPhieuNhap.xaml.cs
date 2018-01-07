@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.VO.NGUYEN;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,17 @@ namespace PL.NGUYEN
     /// </summary>
     public partial class pl_windowChiTietPhieuNhap : Window
     {
+        private vo_PhieuNhapHang vo_PN;
         public pl_windowChiTietPhieuNhap()
         {
             InitializeComponent();
+        }
+
+        public pl_windowChiTietPhieuNhap(vo_PhieuNhapHang _vo)
+        {
+            InitializeComponent();
+            this.vo_PN = _vo;
+            this.DataContext = vo_PN;
         }
     }
 }

@@ -98,7 +98,7 @@ namespace BL.DAO.NGUYEN
                 if (oParams != null)
                 {
                     vo_HangHoa vo = (vo_HangHoa)oParams[0];
-                    string query = "UPDATE NHANVIEN SET MAHANGHOA=@mahh, TENHANGHOA=@tenhh, GIABAN=@giaban, GIAVON=@giavon, TONKHO=@tonkho" +
+                    string query = "UPDATE HANGHOA SET MAHANGHOA=@mahh, TENHANGHOA=@tenhh, GIABAN=@giaban, GIAVON=@giavon, TONKHO=@tonkho" +
                         ", URL_IMAGE=@image, ID_LOAIHANGHOA=@idloaihh, GIAGIAM=@giagiam WHERE OUTPUT INSERTED.ID ID=@id";
                     ConnectionString cnn = new ConnectionString();
 

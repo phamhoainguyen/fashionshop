@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.NGUYEN"
       xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1050"
       Title="pl_pagePhieuNhap">
@@ -19,32 +20,43 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="PHIEU NHAP HANG" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            <Button x:Name="btnExport" Content="Export" Width="100" VerticalAlignment="Center" Margin="300,0,0,0"></Button>
-            <Button x:Name="btnNhapHang" Content="Nhap hang" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"></Button>
 
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+        <DockPanel Grid.Row="1"  VerticalAlignment="Center">
             <Label Content="Tim Kiem" VerticalAlignment="Center"></Label>
-            <TextBox x:Name="maPhieuNhap" Width="100" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
-            <TextBox x:Name="maNCC" Width="100" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
-            <TextBox x:Name="maHH" Width="100" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
+            <TextBox x:Name="maPhieuNhap" Width="237" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
             <Label Content="Tu ngay:" Margin="20,0,0,0" VerticalAlignment="Center" ></Label>
             <DatePicker Width="100" Margin="5,0,0,0" VerticalAlignment="Center"></DatePicker>
             <Label Content="Den ngay:" Margin="20,0,0,0" VerticalAlignment="Center" ></Label>
             <DatePicker Width="100" Margin="5,0,0,0" VerticalAlignment="Center"></DatePicker>
-            <Button Content="Tim" Width="70" VerticalAlignment="Center" Margin="30,0,0,0" ></Button>
-        </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,0">
+                <Button Name="btnThem" Click="btnThem_Click" Width="150"
+                    Margin="20, 10, 0, 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="{dx:DXImage Image=Add_32x32.png}" />
+                        <Label Content=" Them phieu nhap" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnExport" Click="btnExport_Click" Width="90"
+                    Margin="20, 10, 15, 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="{dx:DXImage Image=Right_32x32.png}" />
+                        <Label Content=" Export" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </DockPanel>
         
         
         
         <Grid Grid.Row="2">
             <dxg:GridControl x:Name="iGridViewPhieuNhap">
                 <dxg:GridControl.Columns>
-                    <dxg:GridColumn Header="Ma phieu nhap" Binding="{Binding MAPHIEUNHAP, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Nha cung cap" Binding="{Binding TENNHACUNGCAP, Mode=TwoWay}" Width="200"/>
-                    <dxg:GridColumn Header="Tong tien" Binding="{Binding TONGTIENCANTRA, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Thoi gian" Binding="{Binding THOIGIAN, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Ghi chu" Binding="{Binding GHICHU, Mode=TwoWay}" Width="*"/>
+                    <dxg:GridColumn Header="Ma phieu nhap" Binding="{Binding MaPhieuNhap, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Nha cung cap" Binding="{Binding NhaCungCap, Mode=TwoWay}" Width="200"/>
+                    <dxg:GridColumn Header="Tong tien" Binding="{Binding TongTien, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Thoi gian" Binding="{Binding ThoiGian, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Ghi chu" Binding="{Binding GhiChu, Mode=TwoWay}" Width="*"/>
                 </dxg:GridControl.Columns>
                 <dxg:GridControl.View>
                     <dxg:TableView ShowGroupPanel="False"/>

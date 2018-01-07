@@ -260,7 +260,8 @@ namespace PL.NGUYEN
         {
             try
             {
-                
+                this.vo_PN.MaNhaCungCap = this.cboNCC.SelectedValue.ToString();
+                this.vo_PN.MaNhanVien = this.cboNV.SelectedValue.ToString();
                 foreach(vo_HangHoa _voHH in this.dsHangHoaCuaPhieuNhap)
                 {
                     if(_voHH.SoLuong > 0)

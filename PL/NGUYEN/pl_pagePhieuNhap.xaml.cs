@@ -42,10 +42,7 @@ namespace PL.NGUYEN
             try
             {
                 ObservableCollection<vo_PhieuNhapHang> list = this.bus_phieuNhap.GetAllPhieuNhapHang();
-                //this.gridViewDataSource = list;
-
-                // gan dataSource cho gridView
-                this.iGridViewPhieuNhap.ItemsSource = this.gridViewDataSource.DefaultView;
+                this.iGridViewPhieuNhap.ItemsSource = list;
             }
             catch (Exception ex)
             {
@@ -59,18 +56,22 @@ namespace PL.NGUYEN
         {
             try
             {
-                this.dataSource = new DataTable();
-                DataColumn cl1 = new DataColumn("name", typeof(string));
-                DataColumn cl2 = new DataColumn("name", typeof(string));
-                DataColumn cl3 = new DataColumn("name", typeof(string));
-                DataColumn cl4 = new DataColumn("name", typeof(string));
-                DataColumn cl5 = new DataColumn("name", typeof(string));
-                DataColumn cl6 = new DataColumn("name", typeof(string));
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void btnThem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

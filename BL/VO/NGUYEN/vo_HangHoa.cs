@@ -78,6 +78,21 @@ namespace BL.VO.NGUYEN
                 }
             }
         }
+
+        private int soLuong;
+        public int SoLuong
+        {
+            get { return soLuong; }
+            set
+            {
+                if (soLuong != value)
+                {
+                    soLuong = value;
+                    OnPropertyChanged("SoLuong");
+                }
+            }
+        }
+
         private int tonKho;
         public int TonKho
         {
