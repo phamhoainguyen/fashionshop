@@ -10,6 +10,7 @@ namespace BL.VO.NGUYEN
     public class vo_NhanVien : PropertyChangedBase
     {
         private int id;
+        private int idChucVu;
         private string maNhanVien;
         private string hoTen;
         private int gioiTinh;
@@ -35,7 +36,18 @@ namespace BL.VO.NGUYEN
                 }
             }
         }
-
+        public int IdChucVu
+        {
+            get { return idChucVu; }
+            set
+            {
+                if (idChucVu != value)
+                {
+                    idChucVu = value;
+                    OnPropertyChanged("IdChucVu");
+                }
+            }
+        }
 
         public string MaNhanVien
         {
