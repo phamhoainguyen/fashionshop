@@ -79,7 +79,7 @@ namespace BL.BUS.HUY
 
                     vo.Id = int.Parse(dr["ID"].ToString());
                     vo.MaKhachHang = dr["MAKHACHHANG"].ToString();
-                    vo.TenKhachHang = dr.ToString();
+                    vo.TenKhachHang = dr["TENKHACHHANG"].ToString();
                     vo.NgaySinh = dr["NGAYSINH"].ToString();
                     vo.NgayDangKi = dr["NGAYDANGKY"].ToString();
                     vo.SoDienThoai = dr["SODIENTHOAI"].ToString();
