@@ -52,6 +52,7 @@ namespace BL.BUS.NGUYEN
 
                 DataRow dr = dt.Rows[0];
                 vo.Id = int.Parse(dr["ID"].ToString());
+                vo.IdChucVu = int.Parse(dr["ID_CHUCVU"].ToString());
                 vo.MaNhanVien = dr["MANHANVIEN"].ToString();
                 vo.HoTen = dr["HOTEN"].ToString();
                 vo.NgaySinh = dr["NGAYSINH"].ToString();
@@ -84,6 +85,7 @@ namespace BL.BUS.NGUYEN
                     vo_NhanVien vo = new vo_NhanVien();
 
                     vo.Id = int.Parse(dr["ID"].ToString());
+                    vo.IdChucVu = int.Parse(dr["ID_CHUCVU"].ToString());
                     vo.MaNhanVien = dr["MANHANVIEN"].ToString();
                     vo.HoTen = dr["HOTEN"].ToString();
                     vo.NgaySinh = dr["NGAYSINH"].ToString();
