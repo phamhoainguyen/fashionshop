@@ -6,7 +6,7 @@
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:local="clr-namespace:PL.HUY"
         mc:Ignorable="d"
-        Title="pl_windowThemKhachHang" Height="580" Width="500">
+        Title="pl_windowThemKhachHang" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -24,43 +24,43 @@
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.ColumnSpan="2" Grid.Row="0" Content="THEM KHACH HANG" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"></Label>
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Ma khach hang: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="2" Text="Ten khach hang: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="Gioi tinh: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="4" Text="So dien thoai: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="5" Text="So tai khoan: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="6" Text="Ngay sinh: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="7" Text="Dia chi: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="8" Text="CMND: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="9" Text="Ngay dang ki: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="10" Text="Ghi chu: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <Label Grid.ColumnSpan="2" Grid.Row="0" Content="THÊM KHÁCH HÀNG" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"></Label>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Mã khách hàng: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Tên khách hàng: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Giới tính: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Số điện thoại: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Số tài khoản: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" Text="Ngày sinh: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="7" Text="Địa chỉ: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="8" Text="CMND: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="9" Text="Ngày đăng kí: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="10" Text="Ghi chú: " FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="14" Width="250" VerticalAlignment="Center" Margin="20,11,272,10" FontWeight="Bold" Text="{Binding MaKhachHang}"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=TenKhachHang}"></TextBox>
-        <ComboBox Name="cbGioiTinh" Grid.Column="1" Grid.Row="3" Margin=" 20,7.5, 20, 7.5" FontSize="14" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Center" VerticalAlignment="Center" Width="245"></ComboBox>
-        <TextBox Grid.Column="1" Grid.Row="4" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=SoDienThoai}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="5" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=SoTaiKhoan}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="6" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=NgaySinh}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="7" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=DiaChi}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="8" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=CMND}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="9" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=NgayDangKi}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="10" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=GhiChu}"></TextBox>
-        <StackPanel Grid.ColumnSpan="2" Grid.Row="11" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Name="btnLuu" Click="btnLuu_Click" Margin="20, 30, 20, 30" Width="90">
+        <TextBox Grid.Column="1" Grid.Row="1" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding MaKhachHang,Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding Path=TenKhachHang}"></TextBox>
+        <ComboBox Name="cbGioiTinh" Grid.Column="1" Grid.Row="3" Margin=" 20,7.5, 130, 7.5" FontSize="14" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Center" VerticalAlignment="Center" Width="245"></ComboBox>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding Path=SoDienThoai}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="5" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding Path=SoTaiKhoan}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="6" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding Path=NgaySinh}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="7" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding Path=DiaChi}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="8" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding Path=CMND}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="9" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding Path=NgayDangKi}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="10" Margin=" 20,7.5, 130, 7.5" Width="245" HorizontalAlignment="Center" FontSize="14" Text="{Binding Path=GhiChu}"></TextBox>
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="11" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30, 0, 0, 0">
+            <Button Name="btnLuu" Click="btnLuu_Click" Margin="20, 30, 20, 30" Width="110">
                 <StackPanel Orientation="Horizontal">
                     <Image  Source="{dx:DXImage Image=SaveTheme_32x32.png}" />
-                    <Label Content=" Luu" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Content=" Lưu" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </StackPanel>
             </Button>
-            <Button Name="btnHuy" Click="btnHuy_Click" Margin="50, 30, 20, 30" Width="90">
+            <Button Name="btnHuy" Click="btnHuy_Click" Margin="50, 30, 20, 30" Width="110">
                 <StackPanel Orientation="Horizontal">
                     <Image  Source="{dx:DXImage Image=Cancel_32x32.png}"/>
-                    <Label Content=" Huy" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Content=" Hủy" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </StackPanel>
             </Button>
         </StackPanel>

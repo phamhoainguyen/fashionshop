@@ -22,15 +22,33 @@ namespace PL.HUY
     {
         bus_KhachHang bus_khachHang = new bus_KhachHang();
         vo_KhachHang vo_khachHang = new vo_KhachHang();
+        public pl_windowThemKhachHang()
+        {
+            try
+            {
+                InitializeComponent();
+                bus_khachHang = new bus_KhachHang();
+                vo_khachHang = new vo_KhachHang();
+                string MaKh = bus_khachHang.generateMaKhachHang();
+                this.vo_khachHang.MaKhachHang = MaKh;
+                this.DataContext = this.vo_khachHang;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
         private void btnLuu_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-
+                vo_khachHang.GioiTinh = 0;
                 int id = this.bus_khachHang.addKhachHang(this.vo_khachHang);
                 if (id > 0)
                 {
-                    MessageBox.Show("Them khach hang thanh cong", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Them khach hang thanh cong", "Loi!", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else
                 {
