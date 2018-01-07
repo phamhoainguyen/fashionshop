@@ -62,7 +62,7 @@ namespace BL.BUS.NGUYEN
             {
                 dao_PhieuNhapHang dao = new dao_PhieuNhapHang();
                 int id =dao.GetLastesPhieuNhapId() + 1;
-                string code = "PN" + String.Format("{0:00000}", id);
+                string code = "PN" + String.Format("{0:000000}", id);
                 return code;
             }
             catch(Exception ex)

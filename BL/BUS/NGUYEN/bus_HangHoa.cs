@@ -32,7 +32,7 @@ namespace BL.BUS.NGUYEN
             {
                 dao_HangHoa dao = new dao_HangHoa();
                 int id = dao.GetLastHangHoaID() + 1;
-                string code = "HH" + String.Format("{0:00000}", id);
+                string code = "HH" + String.Format("{0:000000}", id);
                 return code;
             }
             catch(Exception ex)
