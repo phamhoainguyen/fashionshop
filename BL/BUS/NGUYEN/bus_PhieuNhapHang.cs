@@ -1,5 +1,6 @@
 ﻿using BL.DAO.NGUYEN;
 using BL.VO.NGUYEN;
+using BL_.Utilities;
 using System;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -30,12 +31,13 @@ namespace BL.BUS.NGUYEN
                         vo_phieuNhap.GhiChu = dr["GHICHU"].ToString();
                         vo_phieuNhap.Id = int.Parse(dr["ID"].ToString());
                         vo_phieuNhap.MaNhaCungCap = dr["MANHACUNGCAP"].ToString();
+                        vo_phieuNhap.NhaCungCap = dr["TENNHACUNGCAP"].ToString();
+                        vo_phieuNhap.TenNhanVien = dr["HOTEN"].ToString();
                         vo_phieuNhap.MaNhanVien = dr["MANHANVIEN"].ToString();
                         vo_phieuNhap.MaPhieuNhap = dr["MAPHIEUNHAP"].ToString();
                         vo_phieuNhap.ThoiGian = dr["THOIGIAN"].ToString();
                         vo_phieuNhap.TongGiam = int.Parse(dr["TONGGIAM"].ToString());
                         vo_phieuNhap.TongTien = int.Parse(dr["TONGTIEN"].ToString());
-
                         listVo.Add(vo_phieuNhap);
                     }
                 }
@@ -130,6 +132,7 @@ namespace BL.BUS.NGUYEN
             try
             {
                 dao_PhieuNhapHang dao = new dao_PhieuNhapHang();
+                vo.ThoiGian = Utilities.StandardTime(DateTime.Now.ToString());
                 int id = dao.InsertPhieuNhap(vo);
 
                 // neu insert phieu nhap thanh cong va tra ve id > 0 thi insert chi tiet

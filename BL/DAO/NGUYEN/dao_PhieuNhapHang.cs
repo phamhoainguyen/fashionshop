@@ -43,7 +43,7 @@ namespace BL.DAO.NGUYEN
                     "INNER JOIN NHANVIEN nv ON pn.MANHANVIEN=nv.MANHANVIEN WHERE ID=@id ISNULL(pn.ISDELETE, 0) <>1";
 
                 string[] arrParam = new string[] { "@id" };
-                SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int};
+                SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int };
                 object[] arrvalues = new object[] { _id };
                 return cnn.conn.GetDataTable(query, arrParam, arrvalues, arrType);
             }
@@ -100,7 +100,7 @@ namespace BL.DAO.NGUYEN
         {
             try
             {
-                if(oParams != null)
+                if (oParams != null)
                 {
                     vo_PhieuNhapHang vo = (vo_PhieuNhapHang)oParams[0];
                     ConnectionString cnn = new ConnectionString();
@@ -109,12 +109,12 @@ namespace BL.DAO.NGUYEN
                     string[] arrParam = new string[] { "@tongtien", "@datra", "@thoigian", "@ghichu", "@maNCC", "@maNV", "@tongGiam", "@id" };
                     SqlDbType[] arrType = new SqlDbType[] { SqlDbType.BigInt,  SqlDbType.BigInt, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
                         SqlDbType.NVarChar, SqlDbType.BigInt, SqlDbType.Int};
-                    object[] arrvalues = new object[] { vo.TongTien, vo.DaTra, vo.ThoiGian, vo.GhiChu, vo.MaNhaCungCap, vo.MaNhanVien, vo.TongGiam,vo.Id };
+                    object[] arrvalues = new object[] { vo.TongTien, vo.DaTra, vo.ThoiGian, vo.GhiChu, vo.MaNhaCungCap, vo.MaNhanVien, vo.TongGiam, vo.Id };
                     return cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
                 }
                 return 0;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -128,12 +128,12 @@ namespace BL.DAO.NGUYEN
                 {
                     vo_PhieuNhapHang vo = (vo_PhieuNhapHang)oParams[0];
                     ConnectionString cnn = new ConnectionString();
-                    string query = "INSERT INTO PHIEUNHAPHANG(TONGTIENCANTRA, DATRA, THOIGIAN, GHICHU, MANHACUNGCAP, MANHANVIEN, TONGGIAM) " +
-                        "VALUES (@tongtien, @datra, @thoigian, @ghichu, @maNCC, @maNV, @tongGiam)";
-                    string[] arrParam = new string[] {"@tongtien", "@datra", "@thoigian", "@ghichu", "@maNCC", "@maNV", "@tongGiam" };
-                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.BigInt,  SqlDbType.BigInt, SqlDbType.DateTime, SqlDbType.NVarChar, SqlDbType.NVarChar,
-                        SqlDbType.NVarChar, SqlDbType.BigInt};
-                    object[] arrvalues = new object[] { vo.TongTien, vo.DaTra, DateTime.Now, vo.GhiChu, vo.MaNhaCungCap, vo.MaNhanVien, vo.TongGiam };
+                    string query = "INSERT INTO PHIEUNHAPHANG(MAPHIEUNHAP, TONGTIENCANTRA, DATRA, THOIGIAN, GHICHU, MANHACUNGCAP, MANHANVIEN, TONGGIAM) output INSERTED.ID " +
+                        "VALUES (@mapn, @tongtien, @datra, @thoigian, @ghichu, @maNCC, @maNV, @tongGiam)";
+                    string[] arrParam = new string[] { "@mapn", "@tongtien", "@datra", "@thoigian", "@ghichu", "@maNCC", "@maNV", "@tongGiam" };
+                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar, SqlDbType.Int,  SqlDbType.Int, SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.NVarChar,
+                        SqlDbType.NVarChar, SqlDbType.Int};
+                    object[] arrvalues = new object[] { vo.MaPhieuNhap, vo.TongTien, vo.DaTra, vo.ThoiGian, vo.GhiChu, vo.MaNhaCungCap, vo.MaNhanVien, vo.TongGiam };
                     return cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
                 }
                 return 0;
@@ -150,38 +150,36 @@ namespace BL.DAO.NGUYEN
         {
             try
             {
-                if(oParams != null)
+                if (oParams != null)
                 {
                     vo_PhieuNhapHang vo_PN = (vo_PhieuNhapHang)oParams[0];
                     ObservableCollection<vo_HangHoa> dsHangHoa = vo_PN.DsHangHoa;
-                    ConnectionString cnn = new ConnectionString();
+                    
                     int soHangHoa = 0;
-                    foreach(vo_HangHoa vo in dsHangHoa)
+                    foreach (vo_HangHoa vo in dsHangHoa)
                     {
-                        string query = "INSERT INTO CHITIETPHIEUNHAPHANG(MAHANGHOA, MAPHIEUNHAP, SOLUONG, DONGIA, GIAGIAM) " +
-                            "VALUES(@maHH, @maPN, @soLuong, @donGia, @giaGiam)";
-                        string[] arrParam = new string[] { "@maHH", "@maPN", "@soLuong", "@donGia", "@giaGiam" };
-                        SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar,  SqlDbType.NVarChar, SqlDbType.Int, SqlDbType.BigInt, SqlDbType.BigInt};
-                        object[] arrvalues = new object[] { vo.MaHangHoa, vo_PN.MaPhieuNhap, vo.SoLuong, vo.GiaBan, vo.GiaGiam };
-                        int _id = cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
-                        if(_id > 0)
-                        {
-                            string _query = "UPDATE HANGHOA SET GIABAN=@giaban, GIAVON=@giavon, TONKHO=@tonkho, GIAGIAM=@giagiam WHERE OUTPUT INSERTED.ID MAHANGHOA=@mahh";
-                            ConnectionString _cnn = new ConnectionString();
+                        ConnectionString cnn = new ConnectionString();
+                        string query = "INSERT INTO CHITIETPHIEUNHAPHANG(MAHANGHOA, MAPHIEUNHAP, SOLUONG, DONGIA) output 1 " +
+                            "VALUES(@maHH, @maPN, @soLuong, @donGia)";
+                        string[] arrParam = new string[] { "@maHH", "@maPN", "@soLuong", "@donGia"};
+                        SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar, SqlDbType.NVarChar, SqlDbType.Int, SqlDbType.Int };
+                        object[] arrvalues = new object[] { vo.MaHangHoa, vo_PN.MaPhieuNhap, vo.SoLuong, vo.GiaVon };
+                        cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
 
-                            string[] _arrParam = new string[] { "@giaban", "@giavon", "@tonkho", "@ghichu", "@giagiam", "@mahh" };
-                            SqlDbType[] _arrType = new SqlDbType[] {  SqlDbType.Int, SqlDbType.Int, SqlDbType.Int,
-                        SqlDbType.NVarChar, SqlDbType.Int, SqlDbType.Int, SqlDbType.Int };
-                            object[] _arrvalues = new object[] { vo.GiaBan, vo.GiaVon, vo.TonKho + vo.SoLuong,
-                         vo.GhiChu, vo.GiaGiam, vo.MaHangHoa };
-                            int id = cnn.conn.ExecuteQueryReturnID(_query, _arrParam, _arrvalues, _arrType);
-                            return id;
-                        }
+
+                        string _query = "UPDATE HANGHOA SET GIABAN=@giaban, GIAVON=@giavon, TONKHO=@tonkho, GIAGIAM=@giagiam OUTPUT INSERTED.ID WHERE MAHANGHOA=@mahh";
+                        ConnectionString _cnn = new ConnectionString();
+
+                        string[] _arrParam = new string[] { "@giaban", "@giavon", "@tonkho", "@ghichu", "@giagiam", "@mahh" };
+                        SqlDbType[] _arrType = new SqlDbType[] {  SqlDbType.Int, SqlDbType.Int, SqlDbType.Int,
+                        SqlDbType.NVarChar, SqlDbType.Int, SqlDbType.NVarChar };
+                        object[] _arrvalues = new object[] { vo.GiaBan, vo.GiaVon, vo.TonKho + vo.SoLuong, vo.GhiChu, vo.GiaGiam, vo.MaHangHoa };
+                        int id = cnn.conn.ExecuteQueryReturnID(_query, _arrParam, _arrvalues, _arrType);
                         soHangHoa++;
                     }
                     return soHangHoa;
                 }
-                
+
                 return 0;
             }
             catch (Exception ex)

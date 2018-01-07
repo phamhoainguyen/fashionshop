@@ -249,8 +249,9 @@ namespace PL.NGUYEN
             try
             {
                 this.InitValue();
-                this.lvHangHoa.ItemsSource = this.dsHangHoaTrongKho;
+                this.lvHangHoa.ItemsSource = this.bus_HH.GetAllHangHoa();
                 this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoaCuaPhieuNhap;
+                this.DataContext = this.vo_PN;
             }
             catch (Exception ex)
             {
@@ -274,9 +275,12 @@ namespace PL.NGUYEN
                 int id = this.bus_PN.AddPhieuNhapHang(this.vo_PN);
                 if(id > 0)
                 {
+                    this.vo_PN = new vo_PhieuNhapHang();
                     this.InitValue();
-                    this.lvHangHoa.ItemsSource = this.dsHangHoaTrongKho;
+                    this.lvHangHoa.ItemsSource = this.bus_HH.GetAllHangHoa();
                     this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoaCuaPhieuNhap;
+                    this.DataContext = this.vo_PN;
+                    
                     MessageBox.Show("Them phieu nhap thanh cong", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -284,6 +288,11 @@ namespace PL.NGUYEN
             {
                 MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btn_themNCC_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -87,7 +87,7 @@ namespace BL.BUS.NGUYEN
                         vo.Id = int.Parse(dr["ID"].ToString());
                         vo.IdLoaiNhaCungCap = int.Parse(dr["ID_LOAINHACUNGCAP"].ToString());
                         vo.LoaiNhaCungCap = dr["LOAINHACUNGCAP"].ToString();
-                        vo.MaNhaCungCap = dr["GHICHU"].ToString();
+                        vo.MaNhaCungCap = dr["MANHACUNGCAP"].ToString();
                         vo.TenNhaCungCap = dr["TENNHACUNGCAP"].ToString();
                         vo.SoDienThoai = dr["SODIENTHOAI"].ToString();
                         vo.SoTaiKhoan = dr["SOTAIKHOAN"].ToString();

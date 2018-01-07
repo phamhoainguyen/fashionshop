@@ -137,7 +137,16 @@
                     <TextBlock Grid.Column="0" Grid.Row="1" Text="Ma phieu nhap:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
                     <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding MaPhieuNhap}" HorizontalAlignment="Right" TextAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Width="150" Margin="0, 0, 20, 0"/>
                     <TextBlock Grid.Column="0" Grid.Row="2" Text="Nha cung cap:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
-                    <ComboBox DisplayMemberPath="TenNhaCungCap" SelectedValuePath="MaNhaCungCap" x:Name="cboNCC" Grid.Column="1" Grid.Row="2" Padding="5, 2, 2, 5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" Margin="0, 0, 20, 0"/>
+                    <DockPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right">
+                        <ComboBox DisplayMemberPath="TenNhaCungCap" SelectedValuePath="MaNhaCungCap" x:Name="cboNCC" Padding="5, 2, 2, 5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="123" Margin="0,9"/>
+                        <Button Name="btn_themNCC" Click="btn_themNCC_Click"
+                     HorizontalAlignment="Center" Margin="3,9,3,9" Width="40">
+                            <StackPanel Orientation="Horizontal">
+                                <Image  Source="{dx:DXImage Image=Add_16x16.png}" />
+                            </StackPanel>
+                        </Button>
+                    </DockPanel>
+
                     <TextBlock Grid.Column="0" Grid.Row="3" Text="Nhan vien:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
                     <ComboBox x:Name="cboNV" DisplayMemberPath="HoTen" SelectedValuePath="MaNhanVien" Grid.Column="1" Grid.Row="3" Padding="5, 2, 2, 5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" Margin="0, 0, 20, 0"/>
                     <TextBlock Grid.Column="0" Grid.Row="4" Text="Ngay lap phieu:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
