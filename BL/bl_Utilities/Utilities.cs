@@ -44,6 +44,17 @@ namespace BL_.Utilities
             string _sqlDate = detailDate[2] + "-" + detailDate[0] + "-" + detailDate[1] + " " + detailTime[0] + ":" + detailTime[1];
             return _sqlDate;
         }
-       
+
+
+        public static string myTimeType(string _date)
+        {
+            string[] dateTime = _date.Split(' ');
+            string date1 = dateTime[0];
+            string time = dateTime[1];
+            string[] detailTime = time.Split(':');
+            string[] detailDate = date1.Split('/');
+            string _sqlDate = detailDate[1] + "-" + detailDate[0] + "-" + detailDate[2] + " " + detailTime[0] + ":" + detailTime[1] + " " + dateTime[2];
+            return _sqlDate;
+        }
     }
 }
