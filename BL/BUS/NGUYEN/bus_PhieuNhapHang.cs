@@ -35,9 +35,9 @@ namespace BL.BUS.NGUYEN
                         vo_phieuNhap.TenNhanVien = dr["HOTEN"].ToString();
                         vo_phieuNhap.MaNhanVien = dr["MANHANVIEN"].ToString();
                         vo_phieuNhap.MaPhieuNhap = dr["MAPHIEUNHAP"].ToString();
-                        vo_phieuNhap.ThoiGian = dr["THOIGIAN"].ToString();
+                        vo_phieuNhap.ThoiGian = Utilities.myTimeType( dr["THOIGIAN"].ToString());
                         vo_phieuNhap.TongGiam = int.Parse(dr["TONGGIAM"].ToString());
-                        vo_phieuNhap.TongTien = int.Parse(dr["TONGTIEN"].ToString());
+                        vo_phieuNhap.TongTien = int.Parse(dr["TONGTIENCANTRA"].ToString());
                         listVo.Add(vo_phieuNhap);
                     }
                 }

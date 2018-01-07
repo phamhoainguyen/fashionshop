@@ -158,7 +158,16 @@ namespace PL.NGUYEN
 
         private void deleteRowItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            MessageBox.Show("Deleteh4", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+            try
+            {
+                //vo_HangHoa row = (vo_HangHoa)this.iGridViewPhieuNhap.SelectedItem;
+                this.dsHangHoaCuaPhieuNhap.Remove((vo_HangHoa)this.iGridViewPhieuNhap.SelectedItem);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            
         }
 
         private void giamGia_TextChanged(object sender, TextChangedEventArgs e)
@@ -292,7 +301,15 @@ namespace PL.NGUYEN
 
         private void btn_themNCC_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                pl_windowThemNhaCungCap pl_themNCC = new pl_windowThemNhaCungCap();
+                pl_themNCC.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

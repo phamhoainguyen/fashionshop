@@ -102,8 +102,8 @@
 
                         </dxg:GridControl.View>
 
-                        <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MaHangHoa, Mode=TwoWay}" Width="100"/>
-                        <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TenHangHoa, Mode=TwoWay}" Width="200"/>
+                        <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MaHangHoa, Mode=TwoWay}" AllowEditing="false"  Width="100"/>
+                        <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TenHangHoa, Mode=TwoWay}" AllowEditing="false" Width="200"/>
                         <dxg:GridColumn Header="So luong" Binding="{Binding SoLuong, Mode=TwoWay}" Width="80"/>
                         <dxg:GridColumn Header="Gia von" Binding="{Binding GiaVon, Mode=TwoWay}" Width="80"/>
                         <dxg:GridColumn Header="Gia Ban" Binding="{Binding GiaBan, Mode=TwoWay}" Width="80"/>
@@ -138,7 +138,7 @@
                     <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding MaPhieuNhap}" HorizontalAlignment="Right" TextAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Width="150" Margin="0, 0, 20, 0"/>
                     <TextBlock Grid.Column="0" Grid.Row="2" Text="Nha cung cap:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
                     <DockPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right">
-                        <ComboBox DisplayMemberPath="TenNhaCungCap" SelectedValuePath="MaNhaCungCap" x:Name="cboNCC" Padding="5, 2, 2, 5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="123" Margin="0,9"/>
+                        <ComboBox DisplayMemberPath="TenNhaCungCap" SelectedValuePath="MaNhaCungCap" x:Name="cboNCC" Padding="5, 2, 2, 5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="124" Margin="0,9"/>
                         <Button Name="btn_themNCC" Click="btn_themNCC_Click"
                      HorizontalAlignment="Center" Margin="3,9,3,9" Width="40">
                             <StackPanel Orientation="Horizontal">
