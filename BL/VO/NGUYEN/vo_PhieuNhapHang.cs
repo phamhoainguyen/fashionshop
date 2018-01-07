@@ -10,6 +10,11 @@ namespace BL.VO.NGUYEN
 {
     public class vo_PhieuNhapHang : PropertyChangedBase
     {
+
+        public vo_PhieuNhapHang()
+        {
+            this.dsHangHoa = new ObservableCollection<vo_HangHoa>();
+        }
         private int id;
 
         public int Id

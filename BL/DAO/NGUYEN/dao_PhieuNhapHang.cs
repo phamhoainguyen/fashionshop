@@ -33,18 +33,18 @@ namespace BL.DAO.NGUYEN
             }
         }
 
-        public DataTable GetPhieuNhapById(int _id)
+        public DataTable GetPhieuNhapById(string _code)
         {
             try
             {
                 ConnectionString cnn = new ConnectionString();
                 string query = "SELECT pn.*, ncc.TENNHACUNGCAP, ncc.ID, ncc.MANHACUNGCAP, nv.ID, nv.MANHANVIEN, nv.HOTEN FROM " +
                     "PHIEUNHAPHANG pn INNER JOIN NHACUNGCAP ncc ON pn.MANHACUNGCAP=ncc.MANHACUNGCAP " +
-                    "INNER JOIN NHANVIEN nv ON pn.MANHANVIEN=nv.MANHANVIEN WHERE ID=@id ISNULL(pn.ISDELETE, 0) <>1";
+                    "INNER JOIN NHANVIEN nv ON pn.MANHANVIEN=nv.MANHANVIEN WHERE MAPHIEUNHAP=@id AND ISNULL(pn.ISDELETE, 0) <>1";
 
                 string[] arrParam = new string[] { "@id" };
-                SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int };
-                object[] arrvalues = new object[] { _id };
+                SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar };
+                object[] arrvalues = new object[] { _code };
                 return cnn.conn.GetDataTable(query, arrParam, arrvalues, arrType);
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace BL.DAO.NGUYEN
 
 
         // lay danh sach hang hoa trong phieu nhap
-        public DataTable GetDanhSachHangHoaByPhieuNhap(int _id)
+        public DataTable GetDanhSachHangHoaByPhieuNhap(string _code)
         {
             try
             {
@@ -66,8 +66,8 @@ namespace BL.DAO.NGUYEN
                     "WHERE ct.MAPHIEUNHAP=@id";
 
                 string[] arrParam = new string[] { "@id" };
-                SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int };
-                object[] arrvalues = new object[] { _id };
+                SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar };
+                object[] arrvalues = new object[] { _code };
                 return cnn.conn.GetDataTable(query, arrParam, arrvalues, arrType);
             }
             catch (Exception ex)

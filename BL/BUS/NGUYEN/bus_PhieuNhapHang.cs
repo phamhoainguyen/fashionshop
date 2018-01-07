@@ -73,7 +73,7 @@ namespace BL.BUS.NGUYEN
 
 
         // lay chi tiet phieu nhap hang
-        public vo_PhieuNhapHang GetChiTietPhieuNhapHang(int id)
+        public vo_PhieuNhapHang GetChiTietPhieuNhapHang(string _code)
         {
             try
             {
@@ -81,23 +81,26 @@ namespace BL.BUS.NGUYEN
                 vo_PhieuNhapHang vo_phieuNhap = new vo_PhieuNhapHang();
 
                 //lay thong tin phieu nhap
-                DataTable dt = dao.GetPhieuNhapById(id);
+                DataTable dt = dao.GetPhieuNhapById(_code);
                 if(dt != null && dt.Rows.Count > 0)
                 {
                     vo_phieuNhap.DaTra          = int.Parse(dt.Rows[0]["DATRA"].ToString());
                     vo_phieuNhap.GhiChu         = dt.Rows[0]["GHICHU"].ToString();
                     vo_phieuNhap.Id             = int.Parse(dt.Rows[0]["ID"].ToString());
                     vo_phieuNhap.MaNhaCungCap   = dt.Rows[0]["MANHACUNGCAP"].ToString();
+                    vo_phieuNhap.NhaCungCap = dt.Rows[0]["TENNHACUNGCAP"].ToString();
                     vo_phieuNhap.MaNhanVien     = dt.Rows[0]["MANHANVIEN"].ToString();
+                    vo_phieuNhap.TenNhanVien = dt.Rows[0]["HOTEN"].ToString();
                     vo_phieuNhap.MaPhieuNhap    = dt.Rows[0]["MAPHIEUNHAP"].ToString();
-                    vo_phieuNhap.ThoiGian       = dt.Rows[0]["THOIGIAN"].ToString();
+                    vo_phieuNhap.ThoiGian       = Utilities.myTimeType( dt.Rows[0]["THOIGIAN"].ToString());
                     vo_phieuNhap.TongGiam       = int.Parse(dt.Rows[0]["TONGGIAM"].ToString());
-                    vo_phieuNhap.TongTien       = int.Parse(dt.Rows[0]["TONGTIEN"].ToString());
+                    vo_phieuNhap.TongTien       = int.Parse(dt.Rows[0]["TONGTIENCANTRA"].ToString());
+                    vo_phieuNhap.DsHangHoa = new ObservableCollection<vo_HangHoa>();
                 }
 
 
                 // lay danh sach hang hoa trong phieu nhap
-                DataTable dtDsHangHoa = dao.GetDanhSachHangHoaByPhieuNhap(id);
+                DataTable dtDsHangHoa = dao.GetDanhSachHangHoaByPhieuNhap(_code);
 
                 if(dtDsHangHoa != null && dtDsHangHoa.Rows.Count > 0)
                 {
@@ -107,13 +110,19 @@ namespace BL.BUS.NGUYEN
                         // lay nhung du lieu can thiet
                         vo.MaHangHoa = dr["MAHANGHOA"].ToString();
                         vo.TenHangHoa = dr["TENHANGHOA"].ToString();
-                        vo.TonKho = int.Parse(dr["SOLUONG"].ToString());
+                        vo.SoLuong = int.Parse(dr["SOLUONG"].ToString());
                         //don gia
-                        vo.GiaBan = int.Parse(dr["DONGIA"].ToString());
+                        vo.GiaVon = int.Parse(dr["DONGIA"].ToString());
                         //gia giam
-                        vo.GiaGiam = int.Parse(dr["GIAGIAM"].ToString());
+                        if (string.IsNullOrEmpty(dr["GIAGIAM"].ToString()))
+                        {
+                            vo.GiaGiam = 0;
+                        }
+                        else
+                        {
+                            vo.GiaGiam = int.Parse(dr["GIAGIAM"].ToString());
+                        }
                         vo.LoaiHangHoa = dr["LOAIHANGHOA"].ToString();
-                        vo.IdLoaiHangHoa = int.Parse(dr["ID_LOAIHANGHOA"].ToString());
 
                         vo_phieuNhap.DsHangHoa.Add(vo);
                     }
