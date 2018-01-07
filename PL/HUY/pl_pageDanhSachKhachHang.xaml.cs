@@ -45,11 +45,7 @@ namespace PL.HUY
             MessageBox.Show("Double click", "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void TableView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Double click", "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
+        
         private void btnThemKhachHang_Click(object sender, RoutedEventArgs e)
         {
             try
