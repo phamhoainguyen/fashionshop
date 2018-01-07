@@ -140,7 +140,7 @@ namespace BL.VO.NGUYEN
 
         public string SoTaiKhoan
         {
-            get { return SoTaiKhoan; }
+            get { return soTaiKhoan; }
             set
             {
                 if ( soTaiKhoan != value)
