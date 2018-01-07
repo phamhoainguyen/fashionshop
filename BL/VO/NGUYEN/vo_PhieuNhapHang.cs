@@ -112,6 +112,20 @@ namespace BL.VO.NGUYEN
             }
         }
 
+        private string nhaCungCap;
+        public string NhaCungCap
+        {
+            get { return nhaCungCap; }
+            set
+            {
+                if (nhaCungCap != value)
+                {
+                    nhaCungCap = value;
+                    OnPropertyChanged("NhaCungCap");
+                }
+            }
+        }
+
         private string maNhanVien;
         public string MaNhanVien
         {
@@ -122,6 +136,20 @@ namespace BL.VO.NGUYEN
                 {
                     maNhanVien = value;
                     OnPropertyChanged("MaNhaCungCap");
+                }
+            }
+        }
+
+        private string tenNhanVien;
+        public string TenNhanVien
+        {
+            get { return tenNhanVien; }
+            set
+            {
+                if (tenNhanVien != value)
+                {
+                    tenNhanVien = value;
+                    OnPropertyChanged("TenNhanVien");
                 }
             }
         }
