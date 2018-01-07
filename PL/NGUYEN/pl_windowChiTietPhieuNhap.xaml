@@ -39,25 +39,31 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Content="Ma phieu nhap:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="Thoi gian:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
-                        <Label Grid.Row="2" Grid.Column="0" Content="Nha cung cap:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
-                        <Label Grid.Row="1" Grid.Column="2" Content="Chi Nhanh:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
-                        <Label Grid.Row="2" Grid.Column="2" Content="Nguoi tao:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
-                        <Label Grid.Row="0" Grid.Column="4" Content="Ghi chu:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
-                        <TextBox Grid.Column="5" Grid.RowSpan="3" Margin="15" MaxLines="8" TextWrapping="Wrap" AcceptsReturn="True"/>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Ma phieu nhap:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MaPhieuNhap}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+                        <Label Grid.Row="1" Grid.Column="0" Content="Thoi gian:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ThoiGian}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+                        <Label Grid.Row="2" Grid.Column="0" Content="Nha cung cap:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding NhaCungCap}" TextWrapping="Wrap" FontSize="14" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+                        <Label Grid.Row="0"  Grid.Column="2" Content="Tong tien:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
+                        <TextBlock Grid.Row="0" FontWeight="Bold" Grid.Column="3" Text="{Binding TongTien}" FontSize="14"  HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+                        <Label Grid.Row="1" Grid.Column="2" Content="Chi Nhanh:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
+                        <TextBlock Grid.Row="1" Grid.Column="3" Text="Chi Nhanh Thu Duc" FontSize="14"  HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+                        <Label Grid.Row="2" Grid.Column="2" Content="Nguoi tao:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+                        <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding TenNhanVien}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+                        <Label Grid.Row="0" Grid.Column="4" Content="Ghi chu:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="80" Padding="10, 0, 0, 0"/>
+                        <TextBox Grid.Column="5" Grid.RowSpan="3" Margin="15" MaxLines="8" TextWrapping="Wrap" FontSize="14" AcceptsReturn="True"/>
                     </Grid>
                     <Grid Grid.Row="1" Margin="0, 20, 0, 0">
                         <dxg:GridControl x:Name="iGridViewPhieuNhap">
                             <dxg:GridControl.View>
                                 <dxg:TableView ShowGroupPanel="False"/>
                             </dxg:GridControl.View>
-                            <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MAPHIEUNHAP, Mode=TwoWay}" Width="150"/>
-                            <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TENNHACUNGCAP, Mode=TwoWay}" Width="200"/>
-                            <dxg:GridColumn Header="Loai hang hoa" Binding="{Binding GHICHU, Mode=TwoWay}" Width="150"/>
-                            <dxg:GridColumn Header="Don gia" Binding="{Binding TONGTIENCANTRA, Mode=TwoWay}" Width="150"/>
-                            <dxg:GridColumn Header="So luong" Binding="{Binding THOIGIAN, Mode=TwoWay}" Width="150"/>
-                            <dxg:GridColumn Header="Ghi chu" Binding="{Binding GHICHU, Mode=TwoWay}" Width="*"/>
+                            <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MaHangHoa, Mode=TwoWay}" Width="200"/>
+                            <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TenHangHoa, Mode=TwoWay}" Width="*"/>
+                            <dxg:GridColumn Header="Loai hang hoa" Binding="{Binding GhiChu, Mode=TwoWay}" Width="170"/>
+                            <dxg:GridColumn Header="Don gia" Binding="{Binding GiaVon, Mode=TwoWay}" Width="170"/>
+                            <dxg:GridColumn Header="So luong" Binding="{Binding SoLuong, Mode=TwoWay}" Width="170"/>
                         </dxg:GridControl>
                     </Grid>
                     <Grid Grid.Row="2">

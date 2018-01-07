@@ -1,4 +1,5 @@
-﻿using BL.VO.NGUYEN;
+﻿using BL.BUS.NGUYEN;
+using BL.VO.NGUYEN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +22,29 @@ namespace PL.NGUYEN
     public partial class pl_windowChiTietPhieuNhap : Window
     {
         private vo_PhieuNhapHang vo_PN;
+        private bus_PhieuNhapHang bus_PN;
         public pl_windowChiTietPhieuNhap()
         {
+            
             InitializeComponent();
         }
 
         public pl_windowChiTietPhieuNhap(vo_PhieuNhapHang _vo)
         {
-            InitializeComponent();
-            this.vo_PN = _vo;
-            this.DataContext = vo_PN;
+            try
+            {
+                this.bus_PN = new bus_PhieuNhapHang();
+                InitializeComponent();
+
+                vo_PN = this.bus_PN.GetChiTietPhieuNhapHang(_vo.MaPhieuNhap);
+                this.DataContext = vo_PN;
+                this.iGridViewPhieuNhap.ItemsSource = vo_PN.DsHangHoa;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
     }
 }
