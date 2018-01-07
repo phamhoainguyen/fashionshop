@@ -41,7 +41,8 @@ namespace BL_.Utilities
             string time = dateTime[1];
             string[] detailTime = time.Split(':');
             string[] detailDate = date1.Split('/');
-            return detailDate[1] + "-" + detailDate[0] + "-" + detailDate[2];
+            string _sqlDate = detailDate[2] + "-" + detailDate[0] + "-" + detailDate[1] + " " + detailTime[0] + ":" + detailTime[1];
+            return _sqlDate;
         }
        
     }
