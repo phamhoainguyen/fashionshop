@@ -70,7 +70,7 @@ namespace PL.NGUYEN
                 if(this.vo_PN != null)
                 {
                     this.vo_PN.DsHangHoa = new ObservableCollection<vo_HangHoa>();
-                    this.vo_PN.ThoiGian = Utilities.StandardTime(DateTime.Now.ToString());
+                    this.vo_PN.ThoiGian = Utilities.DotNetToVietNam(DateTime.Now.ToString());
                     this.dsHangHoaTrongKho = this.bus_HH.GetAllHangHoa();
                     this.dsHangHoaCuaPhieuNhap = new ObservableCollection<vo_HangHoa>();
                     this.cboNCC.ItemsSource = this.bus_NCC.GetAllNhaCungCap();
@@ -272,6 +272,7 @@ namespace PL.NGUYEN
         {
             try
             {
+                
                 this.vo_PN.MaNhaCungCap = this.cboNCC.SelectedValue.ToString();
                 this.vo_PN.MaNhanVien = this.cboNV.SelectedValue.ToString();
                 foreach(vo_HangHoa _voHH in this.dsHangHoaCuaPhieuNhap)

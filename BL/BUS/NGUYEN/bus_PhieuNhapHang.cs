@@ -35,7 +35,7 @@ namespace BL.BUS.NGUYEN
                         vo_phieuNhap.TenNhanVien = dr["HOTEN"].ToString();
                         vo_phieuNhap.MaNhanVien = dr["MANHANVIEN"].ToString();
                         vo_phieuNhap.MaPhieuNhap = dr["MAPHIEUNHAP"].ToString();
-                        vo_phieuNhap.ThoiGian = Utilities.myTimeType( dr["THOIGIAN"].ToString());
+                        vo_phieuNhap.ThoiGian = Utilities.DotNetToVietNam( dr["THOIGIAN"].ToString());
                         vo_phieuNhap.TongGiam = int.Parse(dr["TONGGIAM"].ToString());
                         vo_phieuNhap.TongTien = int.Parse(dr["TONGTIENCANTRA"].ToString());
                         listVo.Add(vo_phieuNhap);
@@ -49,6 +49,7 @@ namespace BL.BUS.NGUYEN
                 throw ex;
             }
         }
+
 
         /// <summary>
         /// tao ma phieu nhap
@@ -66,6 +67,37 @@ namespace BL.BUS.NGUYEN
                 return code;
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        //update ghi chu phieu nhap
+        public int UpdateGhiChuPhieuNhap(vo_PhieuNhapHang _vo)
+        {
+            try
+            {
+                dao_PhieuNhapHang dao = new dao_PhieuNhapHang();
+                int id = dao.UpdateGhiChuPhieuNhap(_vo);
+                return id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        // delete phieu nhap
+        public int DeltetePhieuNhap( int _id)
+        {
+            try
+            {
+                dao_PhieuNhapHang dao = new dao_PhieuNhapHang();
+                int id = dao.deletePhieuNhap(_id);
+                return id;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -92,7 +124,7 @@ namespace BL.BUS.NGUYEN
                     vo_phieuNhap.MaNhanVien     = dt.Rows[0]["MANHANVIEN"].ToString();
                     vo_phieuNhap.TenNhanVien = dt.Rows[0]["HOTEN"].ToString();
                     vo_phieuNhap.MaPhieuNhap    = dt.Rows[0]["MAPHIEUNHAP"].ToString();
-                    vo_phieuNhap.ThoiGian       = Utilities.myTimeType( dt.Rows[0]["THOIGIAN"].ToString());
+                    vo_phieuNhap.ThoiGian       = Utilities.DotNetToVietNam( dt.Rows[0]["THOIGIAN"].ToString());
                     vo_phieuNhap.TongGiam       = int.Parse(dt.Rows[0]["TONGGIAM"].ToString());
                     vo_phieuNhap.TongTien       = int.Parse(dt.Rows[0]["TONGTIENCANTRA"].ToString());
                     vo_phieuNhap.DsHangHoa = new ObservableCollection<vo_HangHoa>();

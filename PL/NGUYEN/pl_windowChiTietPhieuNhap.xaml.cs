@@ -46,5 +46,47 @@ namespace PL.NGUYEN
             }
             
         }
+
+        private void xoaPN_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if( MessageBox.Show("Ban muon xoa phieu nhap?", "Loi!", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+                {
+                    return;
+                }
+                int id = this.bus_PN.DeltetePhieuNhap(this.vo_PN.Id);
+                if(id > 0)
+                {
+                    MessageBox.Show("Phieu nhap " + this.vo_PN.MaPhieuNhap + " da duoc xoa!", "Xac nhan!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void luuGhiChu_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.bus_PN = new bus_PhieuNhapHang();
+                int id = this.bus_PN.UpdateGhiChuPhieuNhap(this.vo_PN);
+                if (id > 0)
+                {
+                    MessageBox.Show("Luu thanh cong!" , "Xac nhan!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

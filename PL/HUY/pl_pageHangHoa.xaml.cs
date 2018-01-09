@@ -45,15 +45,7 @@ namespace PL.HUY
         }
 
 
-        private void lvPhieuNhap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Double click", "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
 
-        private void TableView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Double click", "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
@@ -107,17 +99,60 @@ namespace PL.HUY
 
         private void TableView_RowDoubleClick(object sender, DevExpress.Xpf.Grid.RowDoubleClickEventArgs e)
         {
-
+            try
+            {
+                vo_HangHoa _vo = (vo_HangHoa)this.iGridViewPhieuNhap.SelectedItem;
+                pl_windowThemHangHoa _plThemHH = new pl_windowThemHangHoa(_vo);
+                _plThemHH.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void deleteRowItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            try
+            {
+                vo_HangHoa _vo = (vo_HangHoa)this.iGridViewPhieuNhap.SelectedItem;
 
+                if (MessageBox.Show("Bạn có muốn xóa hàng hóa" + _vo.TenHangHoa +" ra khỏi kho", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+                {
+                    return;
+                }
+
+                int _id = this.bus_HH.DeleteHangHoa(_vo.Id);
+                if(_id > 0)
+                {
+                    this.dsHangHoa = this.bus_HH.GetAllHangHoa();
+                    this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoa;
+                    MessageBox.Show("Đã xpas " + _vo.TenHangHoa + "ra khỏi kho", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void thietLapGia_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            
+        }
 
+        private void Refresh_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            try
+            {
+                this.dsHangHoa = bus_HH.GetAllHangHoa();
+                this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoa;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
     }
 }

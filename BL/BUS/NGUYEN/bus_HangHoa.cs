@@ -41,6 +41,20 @@ namespace BL.BUS.NGUYEN
             }
         }
 
+        public int DeleteHangHoa(int _id)
+        {
+            try
+            {
+                dao_HangHoa _dao = new dao_HangHoa();
+                int id = _dao.DeleteHangHoa(_id);
+                return id;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public vo_HangHoa getHangHoaById(int _id)
         {
             try
@@ -64,6 +78,20 @@ namespace BL.BUS.NGUYEN
                 return vo;
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int UpdateHangHoa(vo_HangHoa _vo)
+        {
+            try
+            {
+                dao_HangHoa _dao = new dao_HangHoa();
+                int id = _dao.UpdateHangHoa(_vo);
+                return id;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

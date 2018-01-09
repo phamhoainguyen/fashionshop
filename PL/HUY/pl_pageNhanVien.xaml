@@ -4,44 +4,54 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.HUY"
+      xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+      xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1050"
       Title="pl_pageNhanVien">
 
-    <Grid Background="LightBlue" >
+    <Grid Background="LightBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="NHÂN VIÊN" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            <Button x:Name="btnExport" Content="Export" Width="100" VerticalAlignment="Center" Margin="300,0,0,0"></Button>
-            <Button x:Name="btnThemNhanVien" Content="Thêm Nhân Viên" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0" Click="btnThemNhanVien_Click"></Button>
+            <Label Content="Danh sách nhân viên" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        </StackPanel>
+        <DockPanel Grid.Row="1"  VerticalAlignment="Center">
+            <Label Content="Tìm kiếm :" VerticalAlignment="Center" Margin="10,0"></Label>
+            <TextBox x:Name="searchBox" TextChanged="searchBox_TextChanged" ToolTip="Tìm hàng hóa theo mã hoặc tên" Width="250" Margin="20,0,0,0" VerticalAlignment="Center" FontSize="14"></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,15,0">
+                <Button Name="btnThem" Click="btnThem_Click" Width="150"
+                    Margin="250, 10, 0, 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="{dx:DXImage Image=Add_32x32.png}" />
+                        <Label Content=" Thêm hàng hóa" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnExport" Click="btnExport_Click" Width="90"
+                    Margin="20, 10, 15, 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Source="{dx:DXImage Image=Right_32x32.png}" />
+                        <Label Content=" Export" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
 
-        </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label Content="Tìm Kiếm :" VerticalAlignment="Center"></Label>
-            <TextBox x:Name="maNhanVien" Width="200" Margin="20,0,0,0" VerticalAlignment="Center" TextChanged="maNhanVien_TextChanged"></TextBox>
-            <Label Content="Sắp xếp :" Margin="50,0,0,0" VerticalAlignment="Center"></Label>
-            <Label Content=" Tất Cả " Margin="55,0,0,0" VerticalAlignment="Center"></Label>
-            <RadioButton x:Name="rbTatCa" Margin="0,6,0,0" ></RadioButton>
-            <Label Content=" Tên " Margin="60,0,0,0" VerticalAlignment="Center"></Label>
-            <RadioButton x:Name="rbTen" Margin="0,6,0,0"></RadioButton>
-            <Label Content=" Năm Sinh " Margin="65,0,0,0" VerticalAlignment="Center"></Label>
-            <RadioButton x:Name="rbNamSinh" Margin="0,6,0,0"></RadioButton>
-            <Button Content="Sắp Xếp" Width="70" VerticalAlignment="Center" Margin="80,0,0,0"></Button>
-        </StackPanel>
+        </DockPanel>
         <Grid Grid.Row="2">
             <ListView Margin="5" x:Name="lvNhanVien" >
                 <ListView.View>
                     <GridView x:Name="gvkh">
-                        <GridViewColumn Header="Ma nhan vien" Width="120" DisplayMemberBinding="{Binding MaNhanVien}" />
-                        <GridViewColumn Header="Ho ten" Width="130" DisplayMemberBinding="{Binding HoTen}" />
-                        <GridViewColumn Header="Dia chi" Width="250" DisplayMemberBinding="{Binding DiaChi}" />
-                        <GridViewColumn Header="Gioi tinh" Width="120" DisplayMemberBinding="{Binding GioiTinh}" />
-                        <GridViewColumn Header="Ngay vao lam " Width="200" DisplayMemberBinding="{Binding NgayVaoLam}" />
-                        <GridViewColumn Header="Ghi chu" Width="190" DisplayMemberBinding="{Binding GhiChu}"/>
+                        <GridViewColumn Header="Mã nhân viên" Width="120" DisplayMemberBinding="{Binding MaNhanVien}" />
+                        <GridViewColumn Header="Họ tên" Width="130" DisplayMemberBinding="{Binding HoTen}" />
+                        <GridViewColumn Header="Địa chỉ" Width="250" DisplayMemberBinding="{Binding DiaChi}" />
+                        <GridViewColumn Header="Giới tính" Width="120" DisplayMemberBinding="{Binding GioiTinh}" />
+                        <GridViewColumn Header="Ngày vào làm" Width="200" DisplayMemberBinding="{Binding NgayVaoLam}" />
+                        <GridViewColumn Header="Ghi chú" Width="190" DisplayMemberBinding="{Binding GhiChu}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

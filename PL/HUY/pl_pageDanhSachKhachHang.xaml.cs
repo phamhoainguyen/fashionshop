@@ -65,13 +65,13 @@ namespace PL.HUY
             {
                 ObservableCollection<vo_KhachHang> dsKHCopy = this.bus_KH.getAllKhachHang();
                 ObservableCollection<vo_KhachHang> temp = new ObservableCollection<vo_KhachHang>();
-                if (string.IsNullOrEmpty(this.maKhangHang.Text))
+                if (string.IsNullOrEmpty(this.searchBox.Text))
                 {
                     this.lvKhachHang.ItemsSource = dsKHCopy;
                 }
                 else
                 {
-                    string _text = this.maKhangHang.Text;
+                    string _text = this.searchBox.Text;
                     foreach (vo_KhachHang _vo in dsKHCopy)
                     {
                         if  (_vo.MaKhachHang.ToLower().Contains(_text.ToLower()) || _vo.TenKhachHang.ToLower().Contains(_text.ToLower()))

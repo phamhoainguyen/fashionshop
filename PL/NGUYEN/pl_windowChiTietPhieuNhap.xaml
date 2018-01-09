@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:local="clr-namespace:PL.NGUYEN"
-        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" x:Class="PL.NGUYEN.pl_windowChiTietPhieuNhap"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="PL.NGUYEN.pl_windowChiTietPhieuNhap"
         mc:Ignorable="d"
         Title="pl_windowChiTietPhieuNhap" Height="720" Width="1050">
     <Grid Background="LightGray">
@@ -15,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Background="LightBlue">
-            <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Margin="0, 15, 0 ,0" Content="THONG TIN CHI TIET PHIEU NHAP"/>
+            <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Margin="0, 15, 0 ,0" Content="Thông tin phiếu nhập"/>
         </Grid>
         <Grid Grid.Row="1" Margin="10">
             <Border BorderBrush="Gray" BorderThickness="0.5">
@@ -39,39 +40,43 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Content="Ma phieu nhap:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Mã phiếu nhập:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MaPhieuNhap}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
-                        <Label Grid.Row="1" Grid.Column="0" Content="Thoi gian:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Thời gian:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ThoiGian}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
-                        <Label Grid.Row="2" Grid.Column="0" Content="Nha cung cap:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+                        <Label Grid.Row="2" Grid.Column="0" Content="Nhà cung cấp:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding NhaCungCap}" TextWrapping="Wrap" FontSize="14" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
-                        <Label Grid.Row="0"  Grid.Column="2" Content="Tong tien:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
-                        <TextBlock Grid.Row="0" FontWeight="Bold" Grid.Column="3" Text="{Binding TongTien}" FontSize="14"  HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
-                        <Label Grid.Row="1" Grid.Column="2" Content="Chi Nhanh:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
-                        <TextBlock Grid.Row="1" Grid.Column="3" Text="Chi Nhanh Thu Duc" FontSize="14"  HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
-                        <Label Grid.Row="2" Grid.Column="2" Content="Nguoi tao:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
+                        <Label Grid.Row="0"  Grid.Column="2" Content="Tổng tiền:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
+                        <TextBlock Grid.Row="0" FontWeight="Bold" Grid.Column="3" Text="{Binding TongTien, StringFormat={}{0:N0}}" FontSize="14"  HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+                        <Label Grid.Row="1" Grid.Column="2" Content="Cửa hàng:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0" />
+                        <TextBlock Grid.Row="1" Grid.Column="3" Text="FSHOP" FontSize="14"  HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+                        <Label Grid.Row="2" Grid.Column="2" Content="Người tạo:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="130" Padding="10, 0, 0, 0"/>
                         <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding TenNhanVien}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
-                        <Label Grid.Row="0" Grid.Column="4" Content="Ghi chu:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="80" Padding="10, 0, 0, 0"/>
-                        <TextBox Grid.Column="5" Grid.RowSpan="3" Margin="15" MaxLines="8" TextWrapping="Wrap" FontSize="14" AcceptsReturn="True"/>
+                        <Label Grid.Row="0" Grid.Column="4" Content="Ghi chú:" HorizontalAlignment="Left" FontSize="14" Margin="10" VerticalAlignment="Center" Width="80" Padding="10, 0, 0, 0"/>
+                        <TextBox Grid.Column="5" Grid.RowSpan="3" Margin="15" MaxLines="8" TextWrapping="Wrap" FontSize="14" AcceptsReturn="True" Text="{Binding GhiChu}"/>
                     </Grid>
                     <Grid Grid.Row="1" Margin="0, 20, 0, 0">
                         <dxg:GridControl x:Name="iGridViewPhieuNhap">
                             <dxg:GridControl.View>
                                 <dxg:TableView ShowGroupPanel="False"/>
                             </dxg:GridControl.View>
-                            <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MaHangHoa, Mode=TwoWay}" Width="200"/>
-                            <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TenHangHoa, Mode=TwoWay}" Width="*"/>
-                            <dxg:GridColumn Header="Loai hang hoa" Binding="{Binding GhiChu, Mode=TwoWay}" Width="170"/>
-                            <dxg:GridColumn Header="Don gia" Binding="{Binding GiaVon, Mode=TwoWay}" Width="170"/>
-                            <dxg:GridColumn Header="So luong" Binding="{Binding SoLuong, Mode=TwoWay}" Width="170"/>
+                            <dxg:GridColumn Header="Mã hàng hóa" Binding="{Binding MaHangHoa, Mode=TwoWay}" Width="200"/>
+                            <dxg:GridColumn Header="Tên hàng hóa" Binding="{Binding TenHangHoa, Mode=TwoWay}" Width="*"/>
+                            <dxg:GridColumn Header="Loại hàng hóa" Binding="{Binding GhiChu, Mode=TwoWay}" Width="170"/>
+                            <dxg:GridColumn Header="Đơn giá" Binding="{Binding GiaVon, Mode=TwoWay}" Width="170">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="N0" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn Header="Số lượng" Binding="{Binding SoLuong, Mode=TwoWay}" Width="170"/>
                         </dxg:GridControl>
                     </Grid>
                     <Grid Grid.Row="2">
                         <StackPanel Width="400" HorizontalAlignment="Right" Orientation="Horizontal">
-                            <Button Margin="20, 5, 20, 5" Width="90">
+                            <Button Name="luuGhiChu" Click="luuGhiChu_Click" Margin="20, 5, 20, 5" Width="90">
                                 <StackPanel Orientation="Horizontal">
                                     <Image  Source="{dx:DXImage Image=SaveTheme_32x32.png}"/>
-                                    <Label Content=" Luu" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                                    <Label Content=" Lưu" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                                 </StackPanel>
                             </Button>
                             <Button Margin="20, 5, 20, 5" Width="90">
@@ -80,10 +85,10 @@
                                     <Label Content=" In" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                                 </StackPanel>
                             </Button>
-                            <Button Margin="20, 5, 20, 5" Width="90">
+                            <Button Name="xoaPN" Click="xoaPN_Click" Margin="20, 5, 20, 5" Width="110">
                                 <StackPanel Orientation="Horizontal" >
-                                    <Image  Source="{dx:DXImage Image=SaveTheme_32x32.png}"/>
-                                    <Label Content=" Huy bo" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                                    <Image  Source="{dx:DXImage Image=Delete_32x32.png}"/>
+                                    <Label Content=" Xóa phiếu" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

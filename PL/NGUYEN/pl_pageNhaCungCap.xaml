@@ -19,45 +19,38 @@
 
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="NHA CUNG CAP" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            <Button x:Name="btnExport" Content="Export" Width="100" VerticalAlignment="Center" Margin="300,0,0,0"></Button>
-            <Button x:Name="btnNhapHang" Content="Nhap hang" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"></Button>
+            <Label Content="Danh sách nhà cung cấp" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
 
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label Content="Tim Kiem" VerticalAlignment="Center" Margin="20, 0, 10, 0"></Label>
-            <TextBox x:Name="maPhieuNhap" Width="300" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
+        <DockPanel Grid.Row="1" VerticalAlignment="Center" >
+            <Label Content="Tìm kiếm: " VerticalAlignment="Center" Margin="20, 0, 10, 0" ></Label>
+            <TextBox x:Name="searchBox" Width="300" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
 
-            <Button Margin="60, 10, 20, 10">
+            <Button Margin="250, 10, 20, 10" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" >
                     <Image  Source="{dx:DXImage Image=Add_16x16.png}"/>
-                    <Label Content=" Nha cung cap" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Content=" Thêm nhà cung cấp" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </StackPanel>
             </Button>
-            <Button Margin="20, 10, 20, 10" >
+            
+            <Button Margin="20, 10, 20, 10" HorizontalAlignment="Right" >
                 <StackPanel Orientation="Horizontal" >
-                    <Image  Source="{dx:DXImage Image=ImportMap_32x32.png}"/>
-                    <Label Content=" Import" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Image  Source="{dx:DXImage Image=Right_32x32.png}"/>
+                    <Label Content="Export" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </StackPanel>
             </Button>
-            <Button Margin="20, 10, 20, 10" >
-                <StackPanel Orientation="Horizontal" >
-                    <Image  Source="{dx:DXImage Image=NavigateNext_32x32.png}"/>
-                    <Label Content="Xuat file" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                </StackPanel>
-            </Button>
-        </StackPanel>
+        </DockPanel>
 
 
 
         <Grid Grid.Row="2">
             <dxg:GridControl x:Name="iGridViewPhieuNhap">
                 <dxg:GridControl.Columns>
-                    <dxg:GridColumn Header="Ma phieu nhap" Binding="{Binding MAPHIEUNHAP, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Nha cung cap" Binding="{Binding TENNHACUNGCAP, Mode=TwoWay}" Width="200"/>
-                    <dxg:GridColumn Header="Tong tien" Binding="{Binding TONGTIENCANTRA, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Thoi gian" Binding="{Binding THOIGIAN, Mode=TwoWay}" Width="150"/>
-                    <dxg:GridColumn Header="Ghi chu" Binding="{Binding GHICHU, Mode=TwoWay}" Width="*"/>
+                    <dxg:GridColumn Header="Mã nhà cung cấp" Binding="{Binding MAPHIEUNHAP, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Tên nhà cung cấp" Binding="{Binding TENNHACUNGCAP, Mode=TwoWay}" Width="200"/>
+                    <dxg:GridColumn Header="Tổng tiền" Binding="{Binding TONGTIENCANTRA, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Thời gian" Binding="{Binding THOIGIAN, Mode=TwoWay}" Width="150"/>
+                    <dxg:GridColumn Header="Ghi chú" Binding="{Binding GHICHU, Mode=TwoWay}" Width="*"/>
                 </dxg:GridControl.Columns>
                 <dxg:GridControl.View>
                     <dxg:TableView ShowGroupPanel="False"/>

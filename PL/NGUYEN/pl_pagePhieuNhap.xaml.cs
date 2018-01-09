@@ -1,5 +1,6 @@
 ﻿using BL.BUS.NGUYEN;
 using BL.VO.NGUYEN;
+using BL_.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -122,12 +123,13 @@ namespace PL.NGUYEN
                 else
                 {
                     DateTime _date = (DateTime) this.fromDate.SelectedDate;
+                    string _dateTime = Utilities.ConvertDateType(_date.ToString());
                     foreach (vo_PhieuNhapHang _vo in dsHHCopy)
                     {
-                        //if ()
-                        //{
-                        //    temp.Add(_vo);
-                        //}
+                        if (Utilities.CompareDateTime(_dateTime, _vo.ThoiGian) <= 0)
+                        {
+                            temp.Add(_vo);
+                        }
                     }
                     this.iGridViewPhieuNhap.ItemsSource = temp;
                 }
@@ -140,7 +142,32 @@ namespace PL.NGUYEN
 
         private void toDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            try
+            {
+                ObservableCollection<vo_PhieuNhapHang> dsHHCopy = this.bus_phieuNhap.GetAllPhieuNhapHang();
+                ObservableCollection<vo_PhieuNhapHang> temp = new ObservableCollection<vo_PhieuNhapHang>();
+                if (string.IsNullOrEmpty(this.fromDate.Text))
+                {
+                    this.iGridViewPhieuNhap.ItemsSource = dsHHCopy;
+                }
+                else
+                {
+                    DateTime _date = (DateTime)this.fromDate.SelectedDate;
+                    string _dateTime = Utilities.ConvertDateType(_date.ToString());
+                    foreach (vo_PhieuNhapHang _vo in dsHHCopy)
+                    {
+                        if (Utilities.CompareDateTime(_dateTime, _vo.ThoiGian) >= 0 || Utilities.CompareDateTime(_dateTime, _vo.ThoiGian) <= 0)
+                        {
+                            temp.Add(_vo);
+                        }
+                    }
+                    this.iGridViewPhieuNhap.ItemsSource = temp;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void tbvPhieuNhap_RowDoubleClick(object sender, DevExpress.Xpf.Grid.RowDoubleClickEventArgs e)
@@ -150,6 +177,21 @@ namespace PL.NGUYEN
                 vo_PhieuNhapHang _voPN = (vo_PhieuNhapHang)this.iGridViewPhieuNhap.SelectedItem;
                 pl_windowChiTietPhieuNhap _plChiTietPN = new pl_windowChiTietPhieuNhap(_voPN);
                 _plChiTietPN.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Refresh_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            
+            try
+            {
+                this.initGridViewDataSource();
+
             }
             catch (Exception ex)
             {

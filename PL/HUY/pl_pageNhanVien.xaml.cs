@@ -41,38 +41,21 @@ namespace PL.HUY
             }
 
         }
-        private void lvNhanVien_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Double click", "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
         
-        private void btnThemNhanVien_Click(object sender, RoutedEventArgs e)
-        {
-            try
 
-            {
-                pl_windowThemNhanVien pl_ThemNV = new pl_windowThemNhanVien();
-                pl_ThemNV.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        private void maNhanVien_TextChanged(object sender, TextChangedEventArgs e)
+        private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
                 ObservableCollection<vo_NhanVien> dsNVCopy = this.bus_NV.getALlNhanVien();
                 ObservableCollection<vo_NhanVien> temp = new ObservableCollection<vo_NhanVien>();
-                if (string.IsNullOrEmpty(this.maNhanVien.Text))
+                if (string.IsNullOrEmpty(this.searchBox.Text))
                 {
                     this.lvNhanVien.ItemsSource = dsNVCopy;
                 }
                 else
                 {
-                    string _text = this.maNhanVien.Text;
+                    string _text = this.searchBox.Text;
                     foreach (vo_NhanVien _vo in dsNVCopy)
                     {
                         if (_vo.MaNhanVien.ToLower().Contains(_text.ToLower()) || _vo.HoTen.ToLower().Contains(_text.ToLower()))
@@ -87,6 +70,25 @@ namespace PL.HUY
             {
                 MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void btnThem_Click(object sender, RoutedEventArgs e)
+        {
+            try
+
+            {
+                pl_windowThemNhanVien pl_ThemNV = new pl_windowThemNhanVien();
+                pl_ThemNV.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

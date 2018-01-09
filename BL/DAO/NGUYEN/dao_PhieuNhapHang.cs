@@ -120,6 +120,30 @@ namespace BL.DAO.NGUYEN
             }
         }
 
+
+        public int UpdateGhiChuPhieuNhap(params object[] oParams)
+        {
+            try
+            {
+                if (oParams != null)
+                {
+                    vo_PhieuNhapHang vo = (vo_PhieuNhapHang)oParams[0];
+                    ConnectionString cnn = new ConnectionString();
+                    string query = "UPDATE PHIEUNHAPHANG SET GHICHU=@ghichu output INSERTED.ID WHERE ID=@id";
+                    string[] arrParam = new string[] {"@ghichu", "@id" };
+                    SqlDbType[] arrType = new SqlDbType[] { SqlDbType.NVarChar,  SqlDbType.Int};
+                    object[] arrvalues = new object[] { vo.GhiChu, vo.Id };
+                    return cnn.conn.ExecuteQueryReturnID(query, arrParam, arrvalues, arrType);
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public int InsertPhieuNhap(params object[] oParams)
         {
             try
@@ -205,7 +229,7 @@ namespace BL.DAO.NGUYEN
         {
             try
             {
-                string query = "UPDATE PHIEUNHAP SET ISDELETE=1 OUTPUT INSERTED.ID WHERE ID=@id";
+                string query = "UPDATE PHIEUNHAPHANG SET ISDELETE=1 OUTPUT INSERTED.ID WHERE ID=@id";
                 ConnectionString cnn = new ConnectionString();
                 string[] arrParam = new string[] { "@id" };
                 SqlDbType[] arrType = new SqlDbType[] { SqlDbType.Int };

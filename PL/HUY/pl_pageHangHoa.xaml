@@ -7,6 +7,7 @@
       xmlns:local="clr-namespace:PL.HUY"
       xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
       xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1050"
       Title="pl_pageHangHoa">
@@ -18,17 +19,17 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="HANG HOA" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Label Content="Danh sách hàng hóa" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
         </StackPanel>
         <DockPanel Grid.Row="1"  VerticalAlignment="Center">
-            <Label Content="Tim Kiem :" VerticalAlignment="Center" Margin="10,0"></Label>
-            <TextBox x:Name="searchBox" TextChanged="maHangHoa_TextChanged" Width="250" Margin="20,0,0,0" VerticalAlignment="Center"></TextBox>
+            <Label Content="Tìm kiếm :" VerticalAlignment="Center" Margin="10,0"></Label>
+            <TextBox x:Name="searchBox" TextChanged="maHangHoa_TextChanged" ToolTip="Tìm hàng hóa theo mã hoặc tên" Width="250" Margin="20,0,0,0" VerticalAlignment="Center" FontSize="14"></TextBox>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,15,0">
                 <Button Name="btnThem" Click="btnThem_Click" Width="150"
                     Margin="250, 10, 0, 10">
                     <StackPanel Orientation="Horizontal">
                         <Image  Source="{dx:DXImage Image=Add_32x32.png}" />
-                        <Label Content=" Them hang hoa" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <Label Content=" Thêm hàng hóa" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                     </StackPanel>
                 </Button>
                 <Button Name="btnExport" Click="btnExport_Click" Width="90"
@@ -46,22 +47,36 @@
                 <dxg:GridControl.View>
                     <dxg:TableView Name="tbViewPhieuNhap" ShowGroupPanel="False" RowDoubleClick="TableView_RowDoubleClick">
                         <dxg:TableView.RowCellMenuCustomizations>
-                            <dxb:BarButtonItem Name="deleteRowItem" Content="Delete" 
+                            <dxb:BarButtonItem Name="refresh" Content="Refresh" 
+                           ItemClick="Refresh_ItemClick"/>
+                            <dxb:BarButtonItem Name="deleteRowItem" Content="Xóa hàng hóa" 
                            ItemClick="deleteRowItem_ItemClick"/>
-                            <dxb:BarButtonItem Name="thietLapGia" Content="Thiet lap gia" 
-                           ItemClick="thietLapGia_ItemClick"/>
+                            
                         </dxg:TableView.RowCellMenuCustomizations>
                         
                     </dxg:TableView>
 
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Header="Ma hang hoa" Binding="{Binding MaHangHoa, Mode=TwoWay}" AllowEditing="false" Width="150"/>
-                <dxg:GridColumn Header="Ten hang hoa" Binding="{Binding TenHangHoa, Mode=TwoWay}" AllowEditing="false" Width="250"/>
-                <dxg:GridColumn Header="Ton kho" Binding="{Binding TonKho, Mode=TwoWay}" AllowEditing="false" Width="120"/>
-                <dxg:GridColumn Header="Gia von" Binding="{Binding GiaVon, Mode=TwoWay}" AllowEditing="false" Width="120"/>
-                <dxg:GridColumn Header="Gia Ban" Binding="{Binding GiaBan, Mode=TwoWay}" AllowEditing="false" Width="120"/>
-                <dxg:GridColumn Header="Ghi chu" Binding="{Binding GhiChu, Mode=TwoWay}" AllowEditing="false" Width="*"/>
+                <dxg:GridColumn Header="Mã hàng hóa" Binding="{Binding MaHangHoa, Mode=TwoWay}" AllowEditing="false" Width="150"/>
+                <dxg:GridColumn Header="Tên hàng hóa" Binding="{Binding TenHangHoa, Mode=TwoWay}" AllowEditing="false" Width="200"/>
+                <dxg:GridColumn Header="Tồn kho" Binding="{Binding TonKho, Mode=TwoWay}" AllowEditing="false" Width="120"/>
+                <dxg:GridColumn Header="Giá vốn" Binding="{Binding GiaVon, Mode=TwoWay}" AllowEditing="false" Width="120">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="N0" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Giá bán" Binding="{Binding GiaBan, Mode=TwoWay}" AllowEditing="false" Width="120">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="N0" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Giá giảm" Binding="{Binding GiaGiam, Mode=TwoWay}" AllowEditing="false" Width="120">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings DisplayFormat="N0" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Header="Ghi chú" Binding="{Binding GhiChu, Mode=TwoWay}" AllowEditing="false" Width="*"/>
             </dxg:GridControl>
         </Grid>
     </Grid>
