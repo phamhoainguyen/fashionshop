@@ -6,6 +6,8 @@
       xmlns:local="clr-namespace:PL.HUY"
       xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
       xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+      xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1050"
       Title="pl_pageDanhSachKhachHang">
@@ -41,19 +43,31 @@
             </Button>
         </StackPanel>
 
+
         <Grid Grid.Row="2">
-            <ListView Margin="5" x:Name="lvKhachHang" >
-                <ListView.View>
-                    <GridView x:Name="gvkh">
-                        <GridViewColumn Header="Ma khach hang" Width="150" DisplayMemberBinding="{Binding MaKhachHang}" />
-                        <GridViewColumn Header="Ten khach hang" Width="200" DisplayMemberBinding="{Binding TenKhachHang}" />
-                        <GridViewColumn Header="So dien thoai" Width="130" DisplayMemberBinding="{Binding SoDienThoai}" />
-                        <GridViewColumn Header="Dia chi" Width="200" DisplayMemberBinding="{Binding DiaChi}" />
-                        <GridViewColumn Header="Gioi tinh" Width="90" DisplayMemberBinding="{Binding GioiTinh}" />
-                        <GridViewColumn Header="Ghi chu" Width="250" DisplayMemberBinding="{Binding GhiChu}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <dxg:GridControl x:Name="iGridView">
+                <dxg:GridControl.View>
+                    <dxg:TableView Name="tbViewPhieuNhap" ShowGroupPanel="False">
+                        <dxg:TableView.RowCellMenuCustomizations>
+                            <dxb:BarButtonItem Name="refresh" Content="Refresh" 
+                           ItemClick="Refresh_ItemClick"/>
+                            <dxb:BarButtonItem Name="deleteRowItem" Content="Xóa hàng hóa" 
+                           ItemClick="deleteRowItem_ItemClick"/>
+
+                        </dxg:TableView.RowCellMenuCustomizations>
+
+                    </dxg:TableView>
+
+                </dxg:GridControl.View>
+
+                <dxg:GridColumn Header="Mã khách hàng" Binding="{Binding MaKhachHang, Mode=TwoWay}" AllowEditing="false" Width="150"/>
+                <dxg:GridColumn Header="Tên khách hàng" Binding="{Binding TenKhachHang, Mode=TwoWay}" AllowEditing="false" Width="200"/>
+                <dxg:GridColumn Header="Số điện thoại" Binding="{Binding SoDienThoai, Mode=TwoWay}" AllowEditing="false" Width="120"/>
+                <dxg:GridColumn Header="Giới tính" Binding="{Binding GioiTinh, Mode=TwoWay}" AllowEditing="false" Width="120">
+                </dxg:GridColumn>
+                
+                <dxg:GridColumn Header="Ghi chú" Binding="{Binding GhiChu, Mode=TwoWay}" AllowEditing="false" Width="*"/>
+            </dxg:GridControl>
         </Grid>
     </Grid>
 </Page>

@@ -27,9 +27,9 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.ColumnSpan="2" Grid.Row="0" Content="Thêm nhà cung cấp" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"></Label>
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Mã nhà cung cấp: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="2" Text="Tên nhà cung cấp: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="Loại nhà cung cấp: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Mã nhà cung cấp (*) : " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Tên nhà cung cấp (*) : " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Loại nhà cung cấp (*) : " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="4" Text="Dia chi: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="5" Text="Số điện thoại: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="6" Text="Email: " FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 1, 0, 0"></TextBlock>
@@ -38,7 +38,7 @@
 
         <TextBlock Grid.Column="1" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 1, 0, 0" FontWeight="Bold" Text="{Binding MaNhaCungCap}"></TextBlock>
         <TextBox Grid.Column="1" Grid.Row="2" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=TenNhaCungCap}"></TextBox>
-        <ComboBox Name="cbBoxLoaiNCC" Grid.Column="1" Grid.Row="3" Margin="20,8" FontSize="14" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Center" VerticalAlignment="Center" Width="252"></ComboBox>
+        <ComboBox Name="cbBoxLoaiNCC" Grid.Column="1" Grid.Row="3" Margin="20,8" FontSize="14" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Center" VerticalAlignment="Center" Width="247"></ComboBox>
         <TextBox Grid.Column="1" Grid.Row="4" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=DiaChi}"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="5" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=SoDienThoai}"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="6" Margin=" 20,7.5, 20, 7.5" FontSize="14" Text="{Binding Path=Email}"></TextBox>

@@ -33,7 +33,7 @@ namespace PL.HUY
                 InitializeComponent();
                 this.dsKhachHang = bus_KH.getAllKhachHang();
                 this.DataContext = this;
-                this.lvKhachHang.ItemsSource = this.dsKhachHang;
+                this.iGridView.ItemsSource = this.dsKhachHang;
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace PL.HUY
                 ObservableCollection<vo_KhachHang> temp = new ObservableCollection<vo_KhachHang>();
                 if (string.IsNullOrEmpty(this.searchBox.Text))
                 {
-                    this.lvKhachHang.ItemsSource = dsKHCopy;
+                    this.iGridView.ItemsSource = dsKHCopy;
                 }
                 else
                 {
@@ -79,7 +79,7 @@ namespace PL.HUY
                             temp.Add(_vo);
                         }
                     }
-                    this.lvKhachHang.ItemsSource = temp;
+                    this.iGridView.ItemsSource = temp;
                 }
             }
             catch (Exception ex)
@@ -88,7 +88,13 @@ namespace PL.HUY
             }
         }
 
-        private void lvKhachHang_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void deleteRowItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void Refresh_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
 
         }

@@ -173,7 +173,7 @@ namespace BL.BUS.NGUYEN
             try
             {
                 dao_PhieuNhapHang dao = new dao_PhieuNhapHang();
-                vo.ThoiGian = Utilities.StandardTime(DateTime.Now.ToString());
+                vo.ThoiGian = Utilities.DotNetToVietNam(DateTime.Now.ToString());
                 int id = dao.InsertPhieuNhap(vo);
 
                 // neu insert phieu nhap thanh cong va tra ve id > 0 thi insert chi tiet

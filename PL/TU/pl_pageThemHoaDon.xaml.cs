@@ -65,10 +65,10 @@ namespace PL.TU
                 dsHangHoaHoaDon = new ObservableCollection<vo_HangHoaHoaDon>();
                 gvHoaDon.ItemsSource = dsHangHoaHoaDon;
                 //danh sach khach hang
-                this.cbKhachHang.ItemsSource = this.bus_khachHang.getAllKhachHang();
-                //this.cbNhanVien.ItemsSource = this.bus_nhanVien.getALlNhanVien();
+                this.hoaDon.TenNhanVien = CurrentUser.User.HoTen;
+                this.hoaDon.MaNhanVien = CurrentUser.User.MaNhanVien;
                 hoaDon.MaHoaDon = bus_hoaDon.GenerateMaHoaDon();
-                this.hoaDon.ThoiGian = Utilities.myTimeType(DateTime.Now.ToString());
+                this.hoaDon.ThoiGian = Utilities.DotNetToVietNam(DateTime.Now.ToString());
                 this.DataContext = hoaDon;
             }
             catch (Exception ex)
@@ -132,12 +132,12 @@ namespace PL.TU
             try
             {
 
-                if (string.IsNullOrEmpty(cbKhachHang.Text))
-                {
-                    MessageBox.Show("Chưa nhập khách hàng", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
-                    return;
+                //if (string.IsNullOrEmpty(cbKhachHang.Text))
+                //{
+                //    MessageBox.Show("Chưa nhập khách hàng", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                //    return;
 
-                }
+                //}
                 if (dsHangHoaHoaDon.Count == 0)
                 {
                     MessageBox.Show("Chưa chọn hàng hóa", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -158,7 +158,7 @@ namespace PL.TU
 
                 }
                 hoaDon.MaNhanVien = "NV000001";
-                hoaDon.MaKhachHang = cbKhachHang.SelectedValue.ToString();
+                //hoaDon.MaKhachHang = cbKhachHang.SelectedValue.ToString();
                 hoaDon.DsHangHoaHoaDon = dsHangHoaHoaDon;
                 int id = bus_hoaDon.AddHoaDon(hoaDon);
                 if(id > 0)

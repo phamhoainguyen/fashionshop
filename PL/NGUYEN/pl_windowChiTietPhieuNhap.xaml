@@ -81,7 +81,7 @@
                             </Button>
                             <Button Margin="20, 5, 20, 5" Width="90">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image  Source="{dx:DXImage Image=SaveTheme_32x32.png}"/>
+                                    <Image  Source="{dx:DXImage Image=DefaultPrinter_32x32.png}"/>
                                     <Label Content=" In" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                                 </StackPanel>
                             </Button>

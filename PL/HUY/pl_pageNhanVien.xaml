@@ -29,7 +29,7 @@
                     Margin="250, 10, 0, 10">
                     <StackPanel Orientation="Horizontal">
                         <Image  Source="{dx:DXImage Image=Add_32x32.png}" />
-                        <Label Content=" Thêm hàng hóa" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <Label Content=" Thêm nhân viên" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                     </StackPanel>
                 </Button>
                 <Button Name="btnExport" Click="btnExport_Click" Width="90"
