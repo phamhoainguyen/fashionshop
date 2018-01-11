@@ -10,6 +10,17 @@ namespace BL.VO.NGUYEN
     {
         private static vo_NhanVien user;
 
-        public static vo_NhanVien User { get => user; set => user = value; }
+        public static vo_NhanVien User
+        {
+            get { return user; }
+            set
+            {
+                if (user != value)
+                {
+                    user = value;
+                }
+            }
+
+        }
     }
 }
