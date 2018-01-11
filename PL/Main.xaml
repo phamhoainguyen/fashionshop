@@ -14,37 +14,86 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
+            <Grid Grid.Column="1">
+                <Label Name="labelTime" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Content="01-01-2018 7:50"></Label>
+            </Grid>
+        </Grid>
+        
         <DockPanel Margin="5" Grid.Row="1" Grid.Column="0">
-            <dxn:NavBarControl Background="Blue">
-                <dxn:NavBarControl.View>
-                    <dxn:NavigationPaneView Background="Blue"/>
-                </dxn:NavBarControl.View>
-                <dxn:NavBarGroup x:Name="navBarGroup1" Header="Tong quan" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=BOLocalization_32x32.png}" Click="navBarGroup1_Click">
-                    <dxn:NavBarItem x:Name="navBarItemCuaHang" Content="Cua hang" DisplayMode="ImageAndText" ImageSource="pack://application:,,,/DevExpress.Images.v16.2;component/DevAV/Actions/Buy_32x32.png"/>
-                    <dxn:NavBarItem x:Name="navBarItemGioiThieu" Content="Gioi thieu" DisplayMode="ImageAndText" ImageSource="pack://application:,,,/DevExpress.Images.v16.2;component/DevAV/Actions/About_32x32.png"/>
-                    <dxn:NavBarItem x:Name="navBarItemHoTro" Content="Ho tro" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=Question_32x32.png}"/>
-                </dxn:NavBarGroup>
-                <dxn:NavBarGroup x:Name="navBarGroup2" Header="Giao dich" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=Convert_32x32.png}">
-                    <dxn:NavBarItem x:Name="navBarItemBanHang" Content="Ban hang" ImageSource="{dx:DXImage Image=BOSaleItem_16x16.png}"/>
-                    <dxn:NavBarItem x:Name="navBarItemNhapHang" Content="Nhap hang" ImageSource="{dx:DXImage Image=Add_16x16.png}"/>
-                    <dxn:NavBarItem x:Name="navBarItemTraHangBan" Content="Tra hang ban" ImageSource="{dx:DXImage Image=Redo_16x16.png}"/>
-                    <dxn:NavBarItem x:Name="navBarItemTraHangNhap" Content="Tra hang nhap" ImageSource="{dx:DXImage Image=Undo_16x16.png}"/>
-                </dxn:NavBarGroup>
-                <dxn:NavBarGroup x:Name="navBarGroup5" Header="Bao cao" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=BOReport_32x32.png}"/>
-                <dxn:NavBarGroup x:Name="navBarGroup3" Header="Hang hoa" ImageSource="{dx:DXImage Image=BOPosition_32x32.png}"/>
-                <dxn:NavBarGroup x:Name="navBarGroup4" Header="Doi tac" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=BODetails_32x32.png}"/>
-                <dxn:NavBarGroup x:Name="navBarGroupTiaKhoan" Header="Tai khoan" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=BOUser_32x32.png}"/>
-            </dxn:NavBarControl>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
 
+                <Grid Grid.Row="0" Grid.RowSpan="2">
+                    <dxn:NavBarControl Background="Blue">
+                        <dxn:NavBarControl.View>
+                            <dxn:NavigationPaneView Background="Blue"/>
+                        </dxn:NavBarControl.View>
+                        <dxn:NavBarGroup x:Name="navBarGroup1" Header="Tổng quan" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=BOLocalization_32x32.png}" Click="navBarGroup1_Click">
+                            <dxn:NavBarItem x:Name="navBarItemCuaHang" Click="navBarItemCuaHang_Click" Content="Cửa hàng" DisplayMode="ImageAndText" ImageSource="pack://application:,,,/DevExpress.Images.v16.2;component/DevAV/Actions/Buy_32x32.png"/>
+                            <dxn:NavBarItem x:Name="navBarItemGioiThieu" Content="Giới thiệu" DisplayMode="ImageAndText" ImageSource="pack://application:,,,/DevExpress.Images.v16.2;component/DevAV/Actions/About_32x32.png"/>
+                            <dxn:NavBarItem x:Name="navBarItemHoTro" Content="Hỗ trợ" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=Question_32x32.png}"/>
+                        </dxn:NavBarGroup>
+                        <dxn:NavBarGroup x:Name="navBarGroup2" Header="Giao dịch" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=Convert_32x32.png}">
+                            <dxn:NavBarItem x:Name="navBarItemBanHang" Content="Bán hàng" Click="navBarItemBanHang_Click" ImageSource="{dx:DXImage Image=BOSaleItem_16x16.png}"/>
+                            <dxn:NavBarItem x:Name="navBarItemNhapHang" Content="Nhập hàng" ImageSource="{dx:DXImage Image=Add_16x16.png}" Click="navBarItemNhapHang_Click"/>
+                            <dxn:NavBarItem x:Name="navBarItemTraHangBan" Content="Trả hàng bán" ImageSource="{dx:DXImage Image=Redo_16x16.png}"/>
+                            <dxn:NavBarItem x:Name="navBarItemTraHangNhap" Content="Trả hàng nhập" ImageSource="{dx:DXImage Image=Undo_16x16.png}"/>
+                        </dxn:NavBarGroup>
+                        <dxn:NavBarGroup x:Name="navBarGroup4" Header="Đối tác" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=Team_32x32.png}">
+                            <dxn:NavBarItem Click="navBarItemNCC_Click"  x:Name="navBarItemNCC" Content="Nhà cung cấp" ImageSource="{dx:DXImage Image=BOCustomer_32x32.png}"/>
+                            <dxn:NavBarItem Click="navBarItemKhachHang_Click" x:Name="navBarItemKhachHang" Content="Khách hàng" ImageSource="{dx:DXImage Image=Customer_32x32.png}"/>
+                        </dxn:NavBarGroup>
+                        <dxn:NavBarGroup x:Name="navBarGroupNhanVien" Header="Nhân viên" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=BOEmployee_32x32.png}">
+                            <dxn:NavBarItem Click="navBarItemDSNhanVien_Click"  x:Name="navBarItemDSNhanVien" Content="Danh mục" ImageSource="{dx:DXImage Image=ListBox_16x16.png}"/>
+                            <dxn:NavBarItem Click="navBarItemLuong_Click" x:Name="navBarItemLuong" Content="Lương" ImageSource="{dx:DXImage Image=AddItem_16x16.png}"/>
+                        </dxn:NavBarGroup>
+                        <dxn:NavBarGroup x:Name="navBarGroup5" Header="Báo cáo" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=BOReport_32x32.png}"/>
+                        <dxn:NavBarGroup x:Name="navBarGroup3" Header="Hàng hóa" ImageSource="{dx:DXImage Image=BOPosition_32x32.png}">
+                            <dxn:NavBarItem Click="navBarItemDanhMuc_Click" x:Name="navBarItemDanhMuc" Content="Danh mục" ImageSource="{dx:DXImage Image=ListBox_16x16.png}"/>
+                            <dxn:NavBarItem Click="navBarItemThemMoi_Click" x:Name="navBarItemThemMoi" Content="Thêm hàng hóa" ImageSource="{dx:DXImage Image=AddItem_16x16.png}"/>
+                            <dxn:NavBarItem Click="navBarItemThietLapGia_Click" x:Name="navBarItemThietLapGia" Content="Thiết lập giá" ImageSource="{dx:DXImage Image=ChartXAxisSettings_16x16.png}"/>
+                        </dxn:NavBarGroup>
+                        <dxn:NavBarGroup x:Name="navBarGroupTiaKhoan" Header="Tài khoản" DisplayMode="ImageAndText" ImageSource="{dx:DXImage Image=BOUser_32x32.png}"/>
+                        
+                    </dxn:NavBarControl>
+                </Grid>
+
+                <!--<Grid Grid.Row="1">
+                    <ListView Name="listViewHangHoa" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         ScrollViewer.CanContentScroll="False">
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <TextBlock Text="Nhanvien"></TextBlock>
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>-->
+
+            </Grid>
         </DockPanel>
-        <!--<Frame x:Name="frame" Source="./NGUYEN/pl_pagePhieuNhap.xaml" Grid.Column="1"></Frame>-->
+        <DockPanel Grid.Row="1" Grid.Column="1">
+            <Frame x:Name="contentArea">
+                
+            </Frame>
+        </DockPanel>
+            
     </Grid>
 </Window>
