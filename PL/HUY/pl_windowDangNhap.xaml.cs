@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL.BUS.HUY;
 using BL.VO.HUY;
+using BL.VO.NGUYEN;
+using BL.BUS.NGUYEN;
+
 namespace PL.HUY
 {
     /// <summary>
@@ -21,7 +24,8 @@ namespace PL.HUY
     public partial class pl_windowDangNhap : Window  
     {
         private bus_ChucVu bus_CV;
-        private vo_ChucVu vo_CV;
+        private vo_DangNhap vo_DN;
+        private bus_DangNhap bus_DN;
 
         public pl_windowDangNhap()
         {
@@ -29,9 +33,12 @@ namespace PL.HUY
             try
             {
                 bus_CV = new bus_ChucVu();
-                vo_CV = new vo_ChucVu();
+                bus_DN = new bus_DangNhap();
+                vo_DN = new vo_DangNhap();
+                
                 InitializeComponent();
                 this.initValue();
+                
             }
             catch (Exception ex)
             {
@@ -43,17 +50,28 @@ namespace PL.HUY
             try
             { 
                 this.cbChucVu.ItemsSource = this.bus_CV.getAllChucVu();
-                this.DataContext = this.vo_CV;
+                this.DataContext = this.vo_DN;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void btnDangNhap_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                this.vo_DN.IdCV = (int)this.cbChucVu.SelectedValue;
+                CurrentUser.User = bus_DN.XacThuc(vo_DN);
+                Main main = new Main();
+                main.Show();
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Đăng nhập không thành công", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

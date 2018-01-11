@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SBL.BUS.NGUYEN
+namespace BL.BUS.NGUYEN
 {
     public class bus_LoaiHangHoa
     {

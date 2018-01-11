@@ -68,6 +68,8 @@
                                 <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="{dx:DXImage Image=Add_32x32.png}"/>
 
                             </Button>
+                            <Label Content= "Loại hàng hóa:" Margin="30, 12, 0, 15"></Label>
+                            <ComboBox Name="cbLoaiHH" SelectionChanged="cbLoaiHH_SelectionChanged" DisplayMemberPath="{Binding Name}" SelectedValuePath="{Binding Id}" Margin="20, 12, 0, 15" Width="130"></ComboBox>
                            
                         </StackPanel>
                     </Grid>
@@ -147,7 +149,7 @@
                     </DockPanel>
 
                     <TextBlock Grid.Column="0" Grid.Row="3" Text="Nhân viên:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
-                    <ComboBox x:Name="cboNV" DisplayMemberPath="HoTen" SelectedValuePath="MaNhanVien" Grid.Column="1" Grid.Row="3" Padding="5, 2, 2, 5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" Margin="0, 0, 20, 0"/>
+                    <TextBlock Grid.Column="1" Name="tblNV" Grid.Row="3" Text="{Binding TenNhanVien}" HorizontalAlignment="Right" TextAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Width="150" Margin="0, 0, 20, 0"/>
                     <TextBlock Grid.Column="0" Grid.Row="4" Text="Ngày lập phiếu:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
                     <TextBlock Grid.Column="1" TextAlignment="Left" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="145" Name="tblDateTime" Text="{Binding ThoiGian}" Height="18" Margin="35,10,20,12"></TextBlock>
                 </Grid>
@@ -166,11 +168,11 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Content="Thông tin thanh toán" FontSize="16" VerticalAlignment="Bottom" Grid.ColumnSpan="2" HorizontalAlignment="Left" Foreground="White" Background="Green" Padding="10, 5, 10, 5" Margin="0,0,0,10"/>
-                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Tong tien:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Tổng tiền:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="10, 0, 0, 0"/>
                     <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding TongTien}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14"  FontWeight="Bold" Margin="0, 0, 22, 0" TextAlignment="Right" Padding="0, 0, 3, 0"/>
                     <TextBlock Grid.Column="0" Grid.Row="2" Text="Giảm giá:" HorizontalAlignment="Left" Margin="10, 0, 0, 0" VerticalAlignment="Center" FontSize="14"/>
                     <TextBox Name="giamGia" TextChanged="giamGia_TextChanged" Grid.Column="1" Text="{Binding TongGiam}" TextAlignment="Right" Grid.Row="2" Width="150" Margin="0, 9, 20, 9" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Column="0" Grid.Row="3" Margin="10, 0, 0, 0" Text="Cần trả cho nhà cung cấp:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Margin="10, 0, 0, 0" Text="Cần trả:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
                     <TextBlock Name="canTra" Grid.Column="1" Grid.Row="3" Text="{Binding CanTra}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14"  FontWeight="Bold" Margin="0, 0, 22, 0" TextAlignment="Right" Padding="0, 0, 3, 0"/>
                     <TextBlock Grid.Column="0" Grid.Row="4" Margin="10, 0, 0, 0" Text="Đã trả: " HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
                     <TextBox Name="daTra" LostFocus="canTra_LostFocus" TextChanged="daTra_TextChanged" Grid.Column="1" GotFocus="TextBox_GotFocus" Text="{Binding DaTra}" TextAlignment="Right" Grid.Row="4" Width="150" Margin="0, 9, 20, 9" HorizontalAlignment="Right"/>

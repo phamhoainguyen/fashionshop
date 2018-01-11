@@ -99,7 +99,7 @@ namespace DL
                     }
                     else if((SqlDbType)arrTypes[i] == SqlDbType.Int || (SqlDbType)arrTypes[i] == SqlDbType.Decimal)
                     {
-                        cmd.Parameters.Add(paras[i], SqlDbType.Int).Value = (decimal)(values[i]);
+                        cmd.Parameters.Add(paras[i], SqlDbType.Int).Value = (int)(values[i]);
                     }
                     else if((SqlDbType)arrTypes[i] == SqlDbType.BigInt)
                     {

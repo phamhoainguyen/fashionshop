@@ -2,6 +2,7 @@
 using BL.VO.NGUYEN;
 using BL_.Utilities;
 using PL.HUY;
+using BL.BUS.NGUYEN;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,7 @@ namespace PL.NGUYEN
         private bus_PhieuNhapHang bus_PN = new bus_PhieuNhapHang();
         private bus_NhaCungCap bus_NCC = new bus_NhaCungCap();
         private bus_NhanVien bus_NV = new bus_NhanVien();
+        private bus_LoaiHangHoa bus_LoaiHH = new bus_LoaiHangHoa();
 
         private vo_PhieuNhapHang vo_PN = new vo_PhieuNhapHang();
 
@@ -50,14 +52,16 @@ namespace PL.NGUYEN
                 InitializeComponent();
 
                 this.InitValue();
-                
+
+                this.cbLoaiHH.Items.Add(new vo_LoaiHangHoa(0, "Tất cả"));
+                this.cbLoaiHH.ItemsSource = this.bus_LoaiHH.getAllLoaiHangHoa();
                 this.lvHangHoa.ItemsSource = this.dsHangHoaTrongKho;
                 this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoaCuaPhieuNhap;
                 //vo_PN.MaPhieuNhap = this.bus_PN;
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
         }
@@ -69,12 +73,14 @@ namespace PL.NGUYEN
             {
                 if(this.vo_PN != null)
                 {
+                    
                     this.vo_PN.DsHangHoa = new ObservableCollection<vo_HangHoa>();
                     this.vo_PN.ThoiGian = Utilities.DotNetToVietNam(DateTime.Now.ToString());
                     this.dsHangHoaTrongKho = this.bus_HH.GetAllHangHoa();
                     this.dsHangHoaCuaPhieuNhap = new ObservableCollection<vo_HangHoa>();
                     this.cboNCC.ItemsSource = this.bus_NCC.GetAllNhaCungCap();
-                    this.cboNV.ItemsSource = this.bus_NV.getALlNhanVien();
+                    this.vo_PN.TenNhanVien = CurrentUser.User.HoTen;
+                    this.vo_PN.MaNhanVien = CurrentUser.User.MaNhanVien;
                     this.vo_PN.MaPhieuNhap = this.bus_PN.GenerateMaPhieuNhap();
                 }
                 
@@ -83,7 +89,7 @@ namespace PL.NGUYEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -138,7 +144,7 @@ namespace PL.NGUYEN
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -151,7 +157,7 @@ namespace PL.NGUYEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
         }
@@ -165,7 +171,7 @@ namespace PL.NGUYEN
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             
         }
@@ -185,7 +191,7 @@ namespace PL.NGUYEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -204,7 +210,7 @@ namespace PL.NGUYEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -219,7 +225,7 @@ namespace PL.NGUYEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -249,7 +255,7 @@ namespace PL.NGUYEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -264,7 +270,7 @@ namespace PL.NGUYEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -274,7 +280,6 @@ namespace PL.NGUYEN
             {
                 
                 this.vo_PN.MaNhaCungCap = this.cboNCC.SelectedValue.ToString();
-                this.vo_PN.MaNhanVien = this.cboNV.SelectedValue.ToString();
                 foreach(vo_HangHoa _voHH in this.dsHangHoaCuaPhieuNhap)
                 {
                     if(_voHH.SoLuong > 0)
@@ -291,12 +296,12 @@ namespace PL.NGUYEN
                     this.iGridViewPhieuNhap.ItemsSource = this.dsHangHoaCuaPhieuNhap;
                     this.DataContext = this.vo_PN;
                     
-                    MessageBox.Show("Them phieu nhap thanh cong", "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Thêm phiếu nhập thành công!", "Thành công!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -309,7 +314,19 @@ namespace PL.NGUYEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void cbLoaiHH_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

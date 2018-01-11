@@ -1,6 +1,6 @@
 ﻿using BL.BUS.NGUYEN;
 using BL.VO.NGUYEN;
-using SBL.BUS.NGUYEN;
+using BL.BUS.NGUYEN;
 using System;
 using System.Collections.Generic;
 using System.IO;

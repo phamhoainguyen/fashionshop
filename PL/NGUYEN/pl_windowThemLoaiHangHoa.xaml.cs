@@ -1,5 +1,5 @@
 ﻿using BL.VO.NGUYEN;
-using SBL.BUS.NGUYEN;
+using BL.BUS.NGUYEN;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL.BUS.NGUYEN;
 
 namespace PL.NGUYEN
 {
